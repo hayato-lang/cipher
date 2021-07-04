@@ -10,7 +10,7 @@
 | store_image        |         | Active Storageで実装        | 
 
 ### Association
-- has_many :verses
+- has_many :events
 - has_many :comments
 - has_one :admin
 
@@ -33,7 +33,7 @@
 - belongs_to :user
 
 
-## versesテーブル
+## eventsテーブル
 
 | Column          | Types      | Options                        | 
 | --------------- | ---------- | ------------------------------ | 
@@ -50,12 +50,12 @@
 ## commentsテーブル
 | Column          | Types      | Options                        | 
 | --------------- | ---------- | ------------------------------ | 
-| verse           | references | null: false, foreign_key: true |
+| event           | references | null: false, foreign_key: true |
 | user            | references | null: false, foreign_key: true |
 | text            | text       | null: false                    | 
 
 
 ### Association
 
-- belongs_to :verse
+- belongs_to :event
 - belongs_to :user
