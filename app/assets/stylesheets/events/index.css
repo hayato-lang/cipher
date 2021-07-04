@@ -1,0 +1,121 @@
+/* イベント一覧 */
+
+.event-contents {
+  background-color: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10vh 0;
+}
+
+.event-contents>.title {
+  font-size: 5vh;
+  line-height: 1.4;
+  font-weight: bold;
+  color: #000080;
+  opacity: 0.8;
+}
+
+
+
+.event-lists {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.event-lists>.list {
+  width: 37vh;
+  padding: 1vw;
+  background-color: #FFF;
+}
+
+
+.event-img-content {
+  position: relative;
+}
+
+.event-img {
+  width: 33vh;
+  height: 33vh;
+}
+
+.event-info {
+  background-color: #FFF;
+  color: black;
+  padding: 1vw;
+}
+
+.event-name {
+  font-size: 2.5vh;
+}
+
+.event-details {
+  font-size: 1.5vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* イベント一覧 */
+
+/* 店舗一覧 */
+
+.store-contents {
+  background-color: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10vh 0;
+}
+
+.store-contents>.title {
+  font-size: 5vh;
+  line-height: 1.4;
+  font-weight: bold;
+  color: #000080;
+  opacity: 0.8;
+}
+
+
+.store-lists {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.store-lists>.list {
+  width: 37vh;
+  padding: 1vw;
+  background-color: #FFF;
+}
+
+
+.store-img-content {
+  position: relative;
+}
+
+.store-img {
+  width: 33vh;
+  height: 33vh;
+}
+
+.store-info {
+  background-color: #FFF;
+  color: black;
+  padding: 1vw;
+}
+
+.store-name {
+  font-size: 2.5vh;
+}
+
+.store-details {
+  font-size: 1.5vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* 店舗一覧 */
+
