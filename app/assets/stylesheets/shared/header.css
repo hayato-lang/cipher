@@ -1,0 +1,68 @@
+* {
+  box-sizing: border-box;
+}
+
+.top-page-header {
+  height: 10vh;
+  width: 100vw;
+  padding: 2vh 15vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cipher-icon {
+  font-family: 'Unica One', "Avenir", "游ゴシック", "YuGothic", "ヒラギノ角ゴ Pro W6", "HIragino Kaku Gothic Pro W6", "HIragino Kaku Gothic Pro", Osaka, Meiryo, "メイリオ", "ＭＳ Ｐゴシック", "MS P Gothic", sans-serif;
+  font-size: larger;
+  list-style: none;
+  width: 10vw;
+  margin-right: 10vw;
+  text-decoration: none;
+  letter-spacing: 0.15em;
+  color: #800000;
+  opacity: 0.6;
+  font-size: 34px;
+}
+
+
+.lists-right {
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 1vh 0;
+  list-style: none;
+  align-items: flex-end;
+}
+
+.user-nickname {
+  text-decoration: none;
+  margin-right: 3vw;
+  color: #800000;
+  opacity: 0.8;
+  font-weight: bold;
+}
+
+
+.logout {
+  text-decoration: none;
+  color: #800000;
+  opacity: 0.8;
+}
+
+.login {
+  text-decoration: none;
+  line-height: 32px;
+  margin-right: 3vw;
+  color: #800000;
+  opacity: 0.8;
+}
+
+.sign-up {
+  text-decoration: none;
+  color: #800000;
+  opacity: 0.8;
+}
+
+
