@@ -1,15 +1,12 @@
 
-
-
-
 .footer {
   width: 100vw;
   padding: 5vh 0;
   color: #FFF;
-  background-color: #272727;
   text-align: center;
   background-color: #800000;
   opacity: 0.8;
+  text-align: center;
 }
 
 .footer-contents {
@@ -19,7 +16,8 @@
 }
 
 .cipher-details {
-  margin: 0 4vw;
+  justify-content: space-around;
+  margin-bottom: 3vh;
 }
 
 .footer-content-head {
@@ -39,7 +37,6 @@
   vertical-align: bottom;
   color: white;
   text-decoration: none;
-  
 }
 
 .footer>p {
