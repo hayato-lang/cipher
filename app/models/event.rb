@@ -3,4 +3,5 @@ class Event < ApplicationRecord
     validates :content
     validates :birthday
     belongs_to :admin_user
+  end
 end
