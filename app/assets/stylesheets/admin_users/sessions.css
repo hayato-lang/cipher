@@ -1,0 +1,61 @@
+.signin-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+}
+
+
+.title {
+  font-size: 22px;
+  text-align: center;
+  font-weight: 700;
+  font-family: "Hiragino Kaku Gothic Pro W3","ヒラギノ角ゴ Pro W3",Osaka,"ＭＳ ゴシック",sans-serif;
+  margin-bottom: 20px;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  border: none;
+}
+
+
+.sub-title {
+  font-size: 16px;
+  text-align: left;
+  border-bottom: 1px solid #343434;
+  padding-bottom: 5px;
+}
+
+h1, h2 {
+  font-family: "Hiragino Kaku Gothic Pro W3","ヒラギノ角ゴ Pro W3",Osaka,"ＭＳ ゴシック",sans-serif;
+  margin-bottom: 20px;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: 700;
+}
+
+
+.login-btn {
+  text-align: center;
+  padding:25px 0 50px;
+  letter-spacing: 1.5em;
+}
+
+
+.login-submit-btn {
+  width: 100%;
+  color: white;
+  background: navy;
+  opacity: 0.9;
+  border: 1px solid navy;
+  line-height: 48px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.login-flash-message {
+  text-align: center;
+  color: red;
+}

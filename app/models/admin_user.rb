@@ -6,4 +6,6 @@ class AdminUser < ApplicationRecord
   validates :store_name, presence: true
   PASSWORD_REGGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
   validates_format_of :password, with: PASSWORD_REGGEX
+
+  has_many :events
 end

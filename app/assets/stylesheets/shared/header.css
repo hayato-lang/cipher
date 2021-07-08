@@ -52,10 +52,10 @@
   align-items: flex-end;
 }
 
-.user-nickname {
+.store-name {
   text-decoration: none;
   margin-right: 3vw;
-  color: #800000;
+  color: white;
   opacity: 0.8;
   font-weight: bold;
 }

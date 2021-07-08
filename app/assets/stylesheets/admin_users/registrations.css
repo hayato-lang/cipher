@@ -1,14 +1,10 @@
 .signup-wrapper {
-  opacity: 0.8;
   width: 100vw;
   display: flex;
   justify-content: center;
   font-family: "Hiragino Kaku Gothic Pro W3","ヒラギノ角ゴ Pro W3",Osaka,"ＭＳ ゴシック",sans-serif;
 }
 
-.signup-main {
-  background-color: white;
-}
 
 .title {
   font-size: 25px;
