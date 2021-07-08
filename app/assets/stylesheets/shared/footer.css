@@ -11,12 +11,11 @@
 
 .footer-contents {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   margin-bottom: 5vh;
 }
 
 .cipher-details {
-  justify-content: space-around;
   margin-bottom: 3vh;
 }
 
