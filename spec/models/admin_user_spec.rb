@@ -32,36 +32,35 @@ RSpec.describe AdminUser, type: :model do
         another_user = FactoryBot.build(:admin_user)
         another_user.email = @admin_user.email
         another_user.valid?
-        expect(another_user.errors.full_messages).to include("Email has already been taken")
+        expect(another_user.errors.full_messages).to include('Email has already been taken')
       end
       it 'emailには@を含む記述でなければ登録できない' do
         @admin_user.email = 'test'
         @admin_user.valid?
-        expect(@admin_user.errors.full_messages).to include("Email is invalid")
+        expect(@admin_user.errors.full_messages).to include('Email is invalid')
       end
       it 'passwordが空では登録できない' do
         @admin_user.password = ''
         @admin_user.valid?
-        expect(@admin_user.errors.full_messages).to include("Password is invalid")
-
+        expect(@admin_user.errors.full_messages).to include('Password is invalid')
       end
       it 'passwordとpassword_confirmationが5文字以下では登録できない' do
         @admin_user.password = '123ab'
         @admin_user.password_confirmation = '123ab'
         @admin_user.valid?
-        expect(@admin_user.errors.full_messages).to include("Password is too short (minimum is 6 characters)")
+        expect(@admin_user.errors.full_messages).to include('Password is too short (minimum is 6 characters)')
       end
       it 'passwordとpassword_confirmationが半角英数字が混合されていなければ登録できない' do
         @admin_user.password = '111111'
         @admin_user.password_confirmation = '111111'
         @admin_user.valid?
-        expect(@admin_user.errors.full_messages).to include("Password is invalid")
+        expect(@admin_user.errors.full_messages).to include('Password is invalid')
       end
       it 'passwordとpassword_confirmationが全角では登録できない' do
         @admin_user.password = '１２３ａｂｃ'
         @admin_user.password_confirmation = '１２３ａｂｃ'
         @admin_user.valid?
-        expect(@admin_user.errors.full_messages).to include("Password is invalid")
+        expect(@admin_user.errors.full_messages).to include('Password is invalid')
       end
       it 'passwordが存在してもpassword_confirmationが空では登録できない' do
         @admin_user.password = '111aaa'
