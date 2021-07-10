@@ -1,0 +1,70 @@
+<%= render "shared/second_header" %>
+<h2 class="title">
+      イベント情報を入力
+</h2>
+<%= form_with model: @event, url:  events_path, local: true do |f| %>
+<div class="event-wrapper">
+  <div class="event-container">
+      <%= render 'shared/error_messages', model: f.object %>
+      <div class="img-upload">
+        <div class="weight-bold-text">
+            イベント画像
+            <span class="red">*</span>
+        </div>
+        <div class="click-upload">
+          <p>
+            クリックしてファイルをアップロード
+          </p>
+          <%= f.file_field :event_image, id:"event-image" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="form-wrapper" class="event-text">
+            イベント名
+          <span class="red">*</span>
+        </label>
+        <div class="form-enter">
+           <%= f.text_area :name, class:"input-box", id:"event_name", placeholder:"イベント名（必須 40文字まで)", maxlength:"40"%>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label for="form-wrapper" class="event-text">イベント日時
+            <span class="red">*</span>
+          </label>
+      </div>
+      <div class='event-date-wrap'>
+        <%= raw sprintf(
+                  f.datetime_select(
+                    :birthday,
+                    class:'select-event-date',
+                    id:"event-date",
+                    use_month_numbers: true,
+                    prompt:'--',
+                    start_year: Time.now.year,
+                    end_year: (Time.now.year + 5),
+                    datetime_separator: '<h2 class="fb-txt font-weight-bold my-2">時間</h4>'),
+                  "<p> 年 </p>", "<p> 月 </p>", "<p> 日 </p>", "<p> 時 </p>", "<p> 分 </p>") %>
+      </div>
+      <div class="form-group">
+        <label for="form-wrapper" class="event-text">
+          イベント概要
+          <span class="red">*</span>
+        </label>
+        <div class="form-wrapper">
+           <%= f.text_area :content, class:"input-box", id:"event_content", rows:"7" ,maxlength:"1000"%>
+        </div>
+      </div>
+      <div class='event-post-btn'>
+        <%= f.submit "イベント投稿" ,class:"event-submit-btn" %>
+      </div>
+  </div>
+</div>
+<% end %>
+
+
+
+      
+
+  
+

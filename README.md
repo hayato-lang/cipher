@@ -38,6 +38,7 @@
 | Column          | Types      | Options                        | 
 | --------------- | ---------- | ------------------------------ | 
 | admin_user      | references | null: false, foreign_key: true | 
+| name            | string     | null: false,                   |
 | content         | text       | null: false,                   | 
 | event_date      | date       | null: false,                   | 
 | image           |            | Active Storageで実装            | 
