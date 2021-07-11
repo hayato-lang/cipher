@@ -33,7 +33,7 @@ RSpec.describe Event, type: :model do
       it 'event_dateが今日以前では保存できない' do
         @event.event_date = '2021-01-10 19:00:00'
         @event.valid?
-        expect(@event.errors.full_messages).to include("Event date 明日以降の日付を入力してください")
+        expect(@event.errors.full_messages).to include('Event date 明日以降の日付を入力してください')
       end
       it 'contentが空では保存できない' do
         @event.content = ''
