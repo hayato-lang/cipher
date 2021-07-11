@@ -6,4 +6,11 @@ class Event < ApplicationRecord
     validates :event_date
     validates :event_image
   end
+  validate :day_after_today
+  def day_after_today
+    unless event_date == nil
+      errors.add(:event_date, "明日以降の日付を入力してください") if event_date <= Date.today
+    end
+  end
+
 end

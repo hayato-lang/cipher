@@ -43,7 +43,7 @@
                     prompt:'--',
                     start_year: Time.now.year,
                     end_year: (Time.now.year + 5),
-                    datetime_separator: '<h2 class="fb-txt font-weight-bold my-2">時間</h4>'),
+                    datetime_separator: '<h2 class="txt font-weight-bold my-2">時間</h2>'),
                   "<p> 年 </p>", "<p> 月 </p>", "<p> 日 </p>", "<p> 時 </p>", "<p> 分 </p>") %>
       </div>
       <div class="form-group">
@@ -51,7 +51,7 @@
           イベント概要
           <span class="red">*</span>
         </label>
-        <div class="form-wrapper">
+        <div class="form-enter">
            <%= f.text_area :content, class:"input-box", id:"event_content", rows:"7" ,maxlength:"1000"%>
         </div>
       </div>

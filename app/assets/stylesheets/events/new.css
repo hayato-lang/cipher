@@ -30,7 +30,10 @@
 .event-text {
   font-weight: bold;
   min-width: 170px;
-  margin-bottom: 10px;
+}
+
+.form-enter {
+  margin-top: 20px;
 }
 
 .input-box {
@@ -48,6 +51,13 @@
 
 .event-date-wrap {
   padding-bottom: 20px;
+  margin-top: 10px;
 }
 
+
+.txt {
+  font-weight: bold;
+  min-width: 170px;
+  margin: 10px 0;
+}
 
