@@ -7,7 +7,7 @@
       <%# 商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %> 
       <% @events.each do |event| %>
       <li class='list'>
-        <%= link_to "#" do %>
+        <%= link_to event_path(event.id) do %>
         <div class='event-img-content'>
           <%= image_tag event.event_image, class: "event-img" %>
         </div>
