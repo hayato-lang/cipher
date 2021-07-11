@@ -29,6 +29,7 @@
   width: 37vh;
   padding: 1vw;
   background-color: #FFF;
+  margin-right: 50px;
 }
 
 
@@ -37,8 +38,8 @@
 }
 
 .event-img {
-  width: 33vh;
-  height: 33vh;
+  width: 41vh;
+  height: 41vh;
 }
 
 .event-info {
