@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :authenticate_admin_user!, only: [:new, :create]
+  before_action :authenticate_admin_user!, only: %i[new create]
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:store_name])
