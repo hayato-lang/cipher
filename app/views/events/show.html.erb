@@ -1,0 +1,41 @@
+<%= render 'shared/second_header' %>
+<%# 商品の概要 %>
+<div class="event-show">
+  <div class="icon-box">
+    <%= image_tag "icon_new.png", class: "event-icon" %>
+  </div>
+  <div class="event-name">
+    <%= @event.name %>
+  </div>
+  <div class="event-img-box">
+    <%= image_tag @event.event_image, class:"event-img" %>
+  </div>
+  <% if current_admin_user.id == @event.admin_user_id %>
+    <%=  link_to "イベントの編集", "#", method: :get, class: "event-edit-btn" %>
+    <p class= "or-text">or</p>
+    <%= link_to "削除", "#", method: :delete, class:"event-destroy" %>
+  <% end %>
+
+  <div class="schedule-event">
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-event">イベント名</th>
+          <td class="detail-value"><%= @event.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-event">会場</th>
+          <td class="detail-value"><%= @event.admin_user.store_name %></td>
+        </tr>
+        <tr>
+          <th class="detail-event">イベント日時</th>
+          <td class="detail-value"><%= @event.event_date %></td>
+        </tr>
+        <tr>
+          <th class="detail-event">イベント概要</th>
+          <td class="detail-value"><%= @event.content %></td>
+      </tbody>
+    </table>
+    <%= link_to '一覧へ戻る', root_path, class: 'list-back-link' %>
+  </div>
+</div>
