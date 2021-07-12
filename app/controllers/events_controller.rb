@@ -3,7 +3,6 @@ class EventsController < ApplicationController
     @events = Event.includes(:admin_user).order('created_at DESC')
   end
 
-
   def new
     @event = Event.new
   end
@@ -17,8 +16,14 @@ class EventsController < ApplicationController
     end
   end
 
+  def show
+    @event = Event.find(params[:id])
+  end
+
   private
+
   def event_params
-    params.require(:event).permit(:event_image, :name, :event_date, :content).merge(admin_user_id: current_admin_user.id)
+    params.require(:event).permit(:event_image, :name, :event_date,
+                                  :content).merge(admin_user_id: current_admin_user.id)
   end
 end

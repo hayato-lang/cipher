@@ -37,7 +37,7 @@
   position: relative;
 }
 
-.event-img {
+.event-img-list {
   width: 41vh;
   height: 41vh;
 }
@@ -48,14 +48,8 @@
   padding: 1vw;
 }
 
-.event-name {
-  font-size: 2.5vh;
-}
-
 .event-details {
   font-size: 1.5vh;
-  display: flex;
-  justify-content: space-between;
 }
 
 /* イベント一覧 */

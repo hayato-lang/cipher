@@ -1,0 +1,78 @@
+.icon-box {
+  display: flex;
+  margin-top: 15px;
+}
+
+.event-icon {
+  width: 30.5px;
+  height: 14.5px;
+}
+
+
+.event-name {
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 15px 0;
+}
+
+.event-img{
+  width: 100vw;
+  height: 798px;
+}
+
+.or-text {
+  text-align: center;
+  font-size: 20px;
+}
+
+.event-destroy, .event-edit-btn {
+  text-align: center;
+  font-size: 24px;
+  margin: 20px 0px;
+  padding: 2vh 10vw;
+  display: block;
+  color: black;
+  font-weight: bolder;
+}
+
+.schedule-event {
+  padding: 0 10px;
+}
+
+.detail-table {
+  width: 100%;
+  box-sizing: border-box;
+  text-indent: initial;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.detail-table tr {
+  border-bottom: 5px solid #fff;
+}
+
+.detail-event {
+  background-color: #d7d7d7;
+  font-size: 13px;
+  font-weight: bold;
+  width: 80px;
+  padding: 15px 10px;
+  border-right: 5px solid #fff;
+  text-align: left;
+  vertical-align: top;
+}
+
+.detail-value {
+  background-color: #e8e8e8;
+  font-size: 13px;
+  padding: 15px 10px;
+  word-break: break-all;
+}
+
+.list-back-link {
+  display: block;
+  position: relative;
+  padding: 20px 0 20px 17px;
+  color: black;
+}
