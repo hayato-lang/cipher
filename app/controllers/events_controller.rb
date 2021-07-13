@@ -20,7 +20,6 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find(params[:id])
   end
 
   def destroy
@@ -32,6 +31,11 @@ class EventsController < ApplicationController
   end
 
   def update
+    if @event.update(event_params)
+      redirect_to action: :show
+    else
+      render :edit
+    end
   end
 
   private

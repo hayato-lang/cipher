@@ -11,9 +11,9 @@
     <%= image_tag @event.event_image, class:"event-img" %>
   </div>
   <% if admin_user_signed_in? && current_admin_user.id == @event.admin_user_id %>
-    <%=  link_to "イベントの編集", "#", method: :get, class: "event-edit-btn" %>
+    <%=  link_to "イベントの編集", edit_event_path(@event.id), method: :get, class: "event-edit-btn" %>
     <p class= "or-text">or</p>
-    <%= link_to "削除", "#", method: :delete, class:"event-destroy" %>
+    <%= link_to "削除", event_path(@event.id), method: :delete, class:"event-destroy" %>
   <% end %>
 
   <div class="schedule-event">
