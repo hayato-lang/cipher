@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   before_action :authenticate_admin_user!, except: [:index, :show]
-  before_action :set_event, only: [:show, :destroy]
-  before_action :admin_user_authentication, only:[:destroy]
+  before_action :set_event, only: [:show, :destroy, :edit, :update]
+  before_action :admin_user_authentication, only:[:destroy, :edit, :update]
   def index
     @events = Event.includes(:admin_user).order('created_at DESC')
   end
@@ -20,12 +20,22 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find(params[:id])
   end
 
   def destroy
     @event.destroy
     redirect_to root_path
+  end
+
+  def edit
+  end
+
+  def update
+    if @event.update(event_params)
+      redirect_to action: :show
+    else
+      render :edit
+    end
   end
 
   private
