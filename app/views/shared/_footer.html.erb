@@ -1,22 +1,35 @@
-
-<div class='footer'>
-  <h2 class='footer-content-head'>Cipherについて</h2>
-  <div class='footer-contents'>
-    <div class='cipher-details'>
-      <ul>
-        <li><%= link_to '会社概要（運営会社)', "#", class: "footer-link" %></li>
-        <li><%= link_to 'プライバシーポリシー', "#", class: "footer-link" %></li>
-        <li><%= link_to 'Cipher利用規約', "#", class: "footer-link" %></li>
-      </ul>
+<footer class="global-footer" style="top: 0px; opacity: 1;">
+  <p class="footer-ttl">
+    <%= link_to "Cipher", "#", class:"footer-title" %>
+  </p>
+  <div class="sns-list-box">
+    <div class="sns-parts share-twitter mt20">
     </div>
-    <div class='cipher-details'>
-      <ul>
-        <li><%= link_to 'cipherガイド', "#", class: "footer-link" %></li>
-        <li><%= link_to 'Cipherロゴ利用ガイドライン', "#", class: "footer-link" %></li>
-        <li><%= link_to 'お知らせ', "#", class: "footer-link" %></li>
-      </ul>
+    <div class="sns-parts share-fb mt20">
     </div>
   </div>
-  <%= link_to "Cipher", "#", class:"logo-white" %>
-  <p>© Cipher</p>
-</div>
+  <div class="footer-menu">
+    <div class="sub-footer-menu">
+      <p class="footer-detail">
+        <%= link_to "ABOUT US", "#", class: "footer-sky-blue" %>
+      </p>
+      <p class="footer-detail">
+        <%= link_to "E-mail MAGAZINE", "#", class: "footer-sky-blue" %>
+      </p>
+      <p class="footer-detail">
+        <%= link_to "RECRUIT", "#", class: "footer-sky-blue" %>
+      </p>
+      <div class="sub-footer-menu2">
+        <p class="footer-detail2">
+          <%= link_to "プライバシーポリシー", "#", class: "footer-black" %>
+        </p>
+        <p class="footer-detail2">
+          <%= link_to "お問合せ", "#", class: "footer-black" %>
+        </p>
+      </div>
+    </div>
+  </div>
+  <p class="cipher-logo">
+    ©Cipher
+  </p>
+<footer>
