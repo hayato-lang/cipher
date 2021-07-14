@@ -1,15 +1,24 @@
 .second-header {
-  background: #800000;
-  height: 100px;
-  display: flex;
+  background-color: rgba(242,242,242,0.9);
+  height: 55px;
+  z-index: 100;
+  position: flex;
   justify-content: center;
   align-items: center;
   opacity: 0.8;
 }
 
-.cipher-icon {
-  font-family: 'Unica One', "Avenir", "游ゴシック", "YuGothic", "ヒラギノ角ゴ Pro W6", "HIragino Kaku Gothic Pro W6", "HIragino Kaku Gothic Pro", Osaka, Meiryo, "メイリオ", "ＭＳ Ｐゴシック", "MS P Gothic", sans-serif;
-  letter-spacing: 0.15em;
-  font-size: 50px;
-  color: white;
+.header-wrapper {
+  position: flex;
 }
+
+.cipher-icon {
+  font-family: 'Kaushan Script', cursive ;
+  letter-spacing: 0.15em;
+  text-decoration: none;
+  font-size: 26px;
+  color: #0178cb;
+  display: block;
+  text-align: center;
+}
+
