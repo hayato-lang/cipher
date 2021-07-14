@@ -8,4 +8,5 @@ class AdminUser < ApplicationRecord
   validates_format_of :password, with: PASSWORD_REGGEX
 
   has_many :events
+  has_one :admin_profile
 end
