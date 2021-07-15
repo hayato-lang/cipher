@@ -47,12 +47,74 @@
         </div>
       </div>
       <div class="form-box">
+        <label for="form-text">
+          郵便番号
+          <span class="red">*</span>
+        </label>
+        <div class="form-right">
+           <%= f.text_area :postal_code, class:"form-input-box", id:"postal_code", placeholder:"例)123-4567" %>
+        </div>
+      </div>
+      <div class="form-box">
+        <label for="form-text">
+          都道府県
+          <span class="red">*</span>
+        </label>
+        <div class="form-right">
+           <%= f.text_area :hoge, class:"form-input-box", id:"prefecture" %>
+        </div>
+      </div> 
+      <div class="form-box">
+        <label for="form-text">
+          市区町村
+          <span class="red">*</span>
+        </label>
+        <div class="form-right">
+           <%= f.text_area :municipality, class:"form-input-box", id:"municipality", placeholder:"例）横浜市緑区" %>
+        </div>
+      </div>
+      <div class="form-box">
+        <label for="form-text">
+          番地
+          <span class="red">*</span>
+        </label>
+        <div class="form-right">
+           <%= f.text_area :postal_code, class:"form-input-box", id:"address", placeholder:"例）青山1-1" %>
+        </div>       
+      </div>    
+      <div class="form-box">
+        <label for="form-text">
+          建物名
+        </label>
+        <div class="form-right">
+           <%= f.text_area :building_name, class:"form-input-box", id:"building-name", placeholder:"例）柳ビル 103" %>
+        </div>
+      </div>
+      <div class="form-box">
+        <label for="form-text">
+          電話番号
+          <span class="red">*</span>
+        </label>
+        <div class="form-right">
+           <%= f.text_area :phone_number, class:"form-input-box", id:"phone-number", placeholder: "例）09012345678" %>
+        </div>
+      </div> 
+      <div class="form-box">
+        <label for="form-text">
+          プロフィール
+          <span class="red">*</span>
+        </label>
+        <div class="form-right">
+           <%= f.text_area :profile, class:"form-input-box", id:"profile" %>
+        </div>
+      </div>    
+      <div class="form-box">
          <h2 class='form-bottom-text'>
           「会員登録」のボタンを押すことにより、
           <span>利用規約</span>
           <br>に同意したものとみなします
         </h2>
-      </div>
+      </div>     
       <div class='register-btn'>
         <%= f.submit "会員登録" ,class:"register-submit-btn" %>
       </div>

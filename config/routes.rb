@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :admin_users
+  devise_for :admin_users, controller: {registrations: 'users/registrations'}
   root to: 'events#index'
   resources :events
 end

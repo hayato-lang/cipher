@@ -9,4 +9,5 @@ class AdminUser < ApplicationRecord
 
   has_many :events
   has_one :admin_profile
+  accepts_nested_attributes_for :admin_profile
 end
