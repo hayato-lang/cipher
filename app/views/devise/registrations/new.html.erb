@@ -61,7 +61,7 @@
           <span class="red">*</span>
         </label>
         <div class="form-right">
-           <%= f.text_area :hoge, class:"form-input-box", id:"prefecture" %>
+           <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"profile-prefecture"}) %>
         </div>
       </div> 
       <div class="form-box">
