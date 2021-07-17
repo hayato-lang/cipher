@@ -5,8 +5,9 @@
     <p class="title">
       店舗登録
     </p>
-    <%= form_with model: @admin_user, url: admin_user_registration_path, class: 'registration-main', local: true do |f| %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name),class: 'registration-main') do |f| %>
     <%= render 'shared/error_messages', model: f.object %>
+    <%= f.fields_for :admin do |admin| %>
     <div class="conteiner">
       <div class="form-box">
         <label for="form-text">
@@ -14,7 +15,19 @@
           <span class="red">*</span>
         </label>
         <div class="form-right">
-           <%= f.text_area :store_name, class:"form-input-box", id:"store_name", placeholder:"Over Night", autofocus: true %>
+           <%= admin.text_area :store_name, class:"form-input-box", id:"store_name", placeholder:"Over Night", autofocus: true %>
+        </div>
+      </div>
+      <div class="form-box">
+        <div class="form-text">
+            イメージ
+            <span class="red">*</span>
+        </div>
+        <div class="click-upload">
+          <p>
+            クリックしてファイルをアップロード
+          </p>
+          <%= admin.file_field :admin_image, id:"profile-image" %>
         </div>
       </div>
       <div class="form-box">
@@ -52,7 +65,7 @@
           <span class="red">*</span>
         </label>
         <div class="form-right">
-           <%= f.text_area :postal_code, class:"form-input-box", id:"postal_code", placeholder:"例)123-4567" %>
+           <%= admin.text_area :postal_code, class:"form-input-box", id:"postal_code", placeholder:"例)123-4567" %>
         </div>
       </div>
       <div class="form-box">
@@ -61,7 +74,7 @@
           <span class="red">*</span>
         </label>
         <div class="form-right">
-           <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"profile-prefecture"}) %>
+           <%= admin.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"profile-prefecture"}) %>
         </div>
       </div> 
       <div class="form-box">
@@ -70,7 +83,7 @@
           <span class="red">*</span>
         </label>
         <div class="form-right">
-           <%= f.text_area :municipality, class:"form-input-box", id:"municipality", placeholder:"例）横浜市緑区" %>
+           <%= admin.text_area :municipality, class:"form-input-box", id:"municipality", placeholder:"例）横浜市緑区" %>
         </div>
       </div>
       <div class="form-box">
@@ -79,7 +92,7 @@
           <span class="red">*</span>
         </label>
         <div class="form-right">
-           <%= f.text_area :postal_code, class:"form-input-box", id:"address", placeholder:"例）青山1-1" %>
+           <%= admin.text_area :postal_code, class:"form-input-box", id:"address", placeholder:"例）青山1-1" %>
         </div>       
       </div>    
       <div class="form-box">
@@ -87,7 +100,7 @@
           建物名
         </label>
         <div class="form-right">
-           <%= f.text_area :building_name, class:"form-input-box", id:"building-name", placeholder:"例）柳ビル 103" %>
+           <%= admin.text_area :building_name, class:"form-input-box", id:"building-name", placeholder:"例）柳ビル 103" %>
         </div>
       </div>
       <div class="form-box">
@@ -96,7 +109,7 @@
           <span class="red">*</span>
         </label>
         <div class="form-right">
-           <%= f.text_area :phone_number, class:"form-input-box", id:"phone-number", placeholder: "例）09012345678" %>
+           <%= admin.text_area :phone_number, class:"form-input-box", id:"phone-number", placeholder: "例）09012345678" %>
         </div>
       </div> 
       <div class="form-box">
@@ -105,7 +118,7 @@
           <span class="red">*</span>
         </label>
         <div class="form-right">
-           <%= f.text_area :profile, class:"form-text-box", id:"profile" %>
+           <%= admin.text_area :profile, class:"form-text-box", id:"profile" %>
         </div>
       </div>    
       <div class="form-box">
@@ -119,6 +132,7 @@
         <%= f.submit "会員登録" ,class:"register-submit-btn" %>
       </div>
     </div>
+    <% end %>
     <% end %>
   </div>
 </div>

@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:store_name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [admin_profile_attributes: [:store_name, :postal_code, :prefecture_id, :municipality, :address, :building_name, :phone_number, :profile, :admin_image] ])
   end
 
   private

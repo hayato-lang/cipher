@@ -59,8 +59,20 @@ class AdminUsers::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-  def new
+  def admin
     @admin_user = AdminUser.new
     @admin_profile = @admin_user.build_admin_profile
+  end
+
+  def create
+    super
+    admin_user = AdminUser.new(configure_sign_up_params)
+    admin_user.save
+  end
+
+  private
+  def configure_sign_up_params
+    devise_parameter_sanitizer.permit(:sign_up,
+      keys: [admin_profile_attributes: [:store_name, :postal_code, :prefecture_id, :municipality, :address, :building_name, :phone_number, :profile, :admin_image]])
   end
 end
