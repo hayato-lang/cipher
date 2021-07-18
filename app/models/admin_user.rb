@@ -5,8 +5,8 @@ class AdminUser < ApplicationRecord
          :recoverable, :rememberable, :validatable
   PASSWORD_REGGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
   validates_format_of :password, with: PASSWORD_REGGEX
+  validates :store_name, presence: true
 
   has_many :events
   has_one :admin_profile
-  accepts_nested_attributes_for :admin_profile
 end

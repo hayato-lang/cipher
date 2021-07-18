@@ -4,6 +4,38 @@ class AdminUsers::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
+  def new
+    @admin_user = AdminUser.new
+  end
+  
+  def create
+    @admin_user = AdminUser.new(sign_up_params)
+    unless @admin_user.valid?
+      render :new and return
+    end
+    session["devise.regist_data"] = {admin_user: @admin_user.attributes}
+    session["devise.regist_data"][:admin_user]["password"] = params[:admin_user][:password]
+    @admin_profile = @admin_user.build_admin_profile
+    render :new_admin_profile
+  end
+
+  def create_admin_profile
+    @admin_user = AdminUser.new(session["devise.regist_data"]["admin_user"])
+    @admin_profile = AdminProfile.new(admin_profile_params)
+      unless @admin_profile.valid?
+        render :new_admin_profile and return
+      end
+    @admin_user.build_admin_profile(@admin_profile.attributes)
+    @admin_user.save
+    session["devise.regist_data"]["admin_user"].clear
+    sign_in(:admin_user, @admin_user)
+  end
+
+  private
+  def admin_profile_params
+    params.require(:admin_profile).permit(:postal_code, :prefecture_id, :municipality, :address, :building_name, :phone_number, :profile)
+  end
+
   # GET /resource/sign_up
   # def new
   #   super
@@ -59,20 +91,6 @@ class AdminUsers::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-  def admin
-    @admin_user = AdminUser.new
-    @admin_profile = @admin_user.build_admin_profile
-  end
 
-  def create
-    super
-    admin_user = AdminUser.new(configure_sign_up_params)
-    admin_user.save
-  end
 
-  private
-  def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up,
-      keys: [admin_profile_attributes: [:store_name, :postal_code, :prefecture_id, :municipality, :address, :building_name, :phone_number, :profile, :admin_image]])
-  end
 end
