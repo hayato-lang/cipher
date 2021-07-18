@@ -33,7 +33,7 @@ class AdminUsers::RegistrationsController < Devise::RegistrationsController
 
   private
   def admin_profile_params
-    params.require(:admin_profile).permit(:postal_code, :prefecture_id, :municipality, :address, :building_name, :phone_number, :profile)
+    params.require(:admin_profile).permit(:admin_image, :postal_code, :prefecture_id, :municipality, :address, :building_name, :phone_number, :profile)
   end
 
   # GET /resource/sign_up
