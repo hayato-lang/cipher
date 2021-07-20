@@ -15,7 +15,7 @@
 - has_one :admin
 
 
-## adminsテーブル
+## admin_profilesテーブル
 
 | Column             | Types      | Options                        | 
 | ------------------ | -------    | -------------------------------| 
