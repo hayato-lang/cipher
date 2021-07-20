@@ -8,7 +8,7 @@ class CreateAdminProfiles < ActiveRecord::Migration[6.0]
       t.string     :building_name        
       t.string     :phone_number,         null: false
       t.text       :profile,              null: false
-      t.references :admin_user,           null: false, foreign_key: true
+      t.references :admin_user,           null: false
       t.timestamps
     end
   end
