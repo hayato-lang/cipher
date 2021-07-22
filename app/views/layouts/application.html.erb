@@ -7,9 +7,14 @@
     <script type="text/javascript" src="https://js.pay.jp/v1/"></script>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+     <!-- slickの並列CSS -->
+    <%= yield :slick_parallel %>
+     <!-- CSS -->
   </head>
   <body>
     <%= yield %>
+    <!-- slickの並列javascript -->
+    <%= yield :parallel_slick %>
   </body>
 
 </html>
