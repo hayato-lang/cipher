@@ -1,6 +1,5 @@
 <% content_for :slick_parallel do %>
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick.css">
-  <link rel="stylesheet" type="text/css" href="events/index">
+  <%= stylesheet_link_tag 'events/index' %>
 <% end %>
 
 
@@ -72,7 +71,5 @@
 <%= render "shared/footer" %>
 
 <% content_for :parallel_slick do %>
-  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js">
-  </script>
-  <script src="javascript/slick_index"></script>
+  <%= javascript_include_tag 'javascript/slick_index' %>
 <% end %>
