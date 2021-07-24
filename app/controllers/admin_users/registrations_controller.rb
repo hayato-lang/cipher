@@ -25,8 +25,9 @@ class AdminUsers::RegistrationsController < Devise::RegistrationsController
       unless @admin_profile.valid?
         render :new_admin_profile and return
       end
-    @admin_user.build_admin_profile(@admin_profile.attributes)
     @admin_user.save
+    @admin_profile.admin_user_id = @admin_user.id
+    @admin_profile.save
     session["devise.regist_data"]["admin_user"].clear
     sign_in(:admin_user, @admin_user)
   end
@@ -35,6 +36,7 @@ class AdminUsers::RegistrationsController < Devise::RegistrationsController
   def admin_profile_params
     params.require(:admin_profile).permit(:admin_image, :postal_code, :prefecture_id, :municipality, :address, :building_name, :phone_number, :profile)
   end
+
 
   # GET /resource/sign_up
   # def new

@@ -14,12 +14,12 @@ $('.event-lists').slick({
         slidesToScroll: 2,
       }
     },
-    {
-      breakpoint: 426,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
+  {
+    breakpoint: 426,
+    settings: {
+      slidesToShow: 1,
+      slidesToScroll: 1,
       }
-    }
+  }
   ]
 });
