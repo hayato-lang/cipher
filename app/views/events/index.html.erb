@@ -6,8 +6,10 @@
 <%= render "shared/header" %>
 
 <%# /イベント一覧 %>
-<div class='event-contents'>
-    <h2 class='title'>New Events</h2>
+
+<div class="index-wrapper">
+  <h2 class='events-title'>PICK UP</h2>
+  <div class='event-contents'>
     <ul class='event-lists'>
       <%# 商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %> 
       <% @events.each do |event| %>
@@ -16,6 +18,7 @@
         <div class='event-img-content'>
           <%= image_tag event.event_image, class: "event-img-list" %>
         </div>
+        
         <h3 class='event-name'>
             <%= event.name %>
         </h3>
@@ -29,16 +32,14 @@
       <% end %>
       <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
     </ul>
-  </div>
+  </div>  
   <%# /イベント一覧 %>
 
   
 
   <%# /店舗一覧 %>
   <div class='store-contents'>
-    <h2 class='title'>ライブハウス一覧</h2>
-    <div class="subtitle" >
-    </div>
+    <h2 class='store-titles'>ライブハウス一覧</h2>
     <ul class='store-lists'>
       <%# 商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
       <li class='list'>
@@ -59,10 +60,11 @@
       <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
     </ul>
   </div>
+</div>
+
+
 
   <%# /店舗一覧 %>
-
-</div>
 <%= link_to(new_event_path, class: 'purchase-btn') do %>
   <span class='purchase-btn-text'>投稿する</span>
   <%= image_tag 'ei-microphone.png' , size: '185x50' ,class: "purchase-btn-icon" %>
