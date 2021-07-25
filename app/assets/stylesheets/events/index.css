@@ -6,19 +6,20 @@
   flex-direction: column;
 }
 
-.event-contents {
-  width: 100%;
-  padding-bottom: 500px;
-}
-
 .events-title {
-  font-size: 5vh;
-  line-height: 1.4;
-  font-weight: bold;
-  color: #000080;
-  opacity: 0.8;
+  height: 200px;
+  font-size: 45px;
+  letter-spacing: 5px;
+  font-weight: 600;
+  color: #1e2022;
   text-align: center;
   padding: 91px 0 40px 0;
+  font-family: 'arial black'
+}
+
+.event-contents {
+  width: 100%;
+  margin-bottom: 500px;
 }
 
 .event-lists {
@@ -35,6 +36,10 @@
 
 .event-lists .slick-slide {
   margin: 0 10px;
+}
+
+.event-details {
+  background-color: #e8e8e8;
 }
 
 
