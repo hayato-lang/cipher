@@ -1,0 +1,28 @@
+<%= render "shared/header" %>
+<div class="show-wrapper">
+  <h2 class='store-title'>
+    <%= @store_name %>
+  </h2>
+  <div class="admin_user-contents">
+    <ul class='show-events'>
+      <%  @events.each do |event| %>
+      <li class="show-event">
+        <%= link_to event_path(event.id) do %>
+        <%= image_tag event.event_image, class:'show-event-img' %>
+        <div class='show-event-date'>
+          <%= event.event_date %>
+        </div>
+        <p class="show-event-name">
+          <%= event.name %>
+        </p>
+        <% end %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="admin-profile-contents">
+    
+  </div>
+</div>
+
+<%= render "shared/footer" %>
