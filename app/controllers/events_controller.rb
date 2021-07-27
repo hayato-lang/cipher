@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :destroy, :edit, :update]
   before_action :admin_user_authentication, only:[:destroy, :edit, :update]
   def index
-    @events = Event.includes(:admin_user).order('created_at DESC')
+    @events = Event.includes(:admin_user)
   end
 
   def new
