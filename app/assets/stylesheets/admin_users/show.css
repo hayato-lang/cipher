@@ -80,3 +80,27 @@
   line-height: 1.1;
   font-family: Helvetica;
 }
+
+.map-link {
+  height: 47px;
+  width: 100%;
+  border: 1px solid #1e2022;
+  display: block;
+  margin-top: 10px;
+  font-size: 100%;
+  font-weight: bold;
+  line-height: 3;
+  letter-spacing: 2px;
+  text-align: center;
+  color: #1e2022;
+}
+
+.tel {
+  margin: 5px 0 10px;
+}
+
+.phone-number {
+  color: #1e2022;
+  text-decoration: underline;
+}
+

@@ -29,9 +29,15 @@
   </div>
   <div class="profile-contents">
     <p class="shop-name"><%= @store_name %></p>
-    <p class="address-text">
+    <p class="postal-code">
+      〒
       <%= "郵便番号" %>
-      <%= "都道府県" %><%= "市区町村" %><%= "番地" %><%= "建物名" %>
+    </p>
+    <p class="prefecture-text">
+      <%= "都道府県" %><%= "市区町村" %>
+    </p>
+    <p class="address-text">
+      <%= "番地" %><%= "建物名" %>
     </p>
     <%= link_to "Google mapで見る", "#", class:"map-link" %>
     <p class="tel">
