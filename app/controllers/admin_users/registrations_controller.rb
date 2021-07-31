@@ -7,36 +7,35 @@ class AdminUsers::RegistrationsController < Devise::RegistrationsController
   def new
     @admin_user = AdminUser.new
   end
-  
+
   def create
     @admin_user = AdminUser.new(sign_up_params)
-    unless @admin_user.valid?
-      render :new and return
-    end
-    session["devise.regist_data"] = {admin_user: @admin_user.attributes}
-    session["devise.regist_data"][:admin_user]["password"] = params[:admin_user][:password]
+    render :new and return unless @admin_user.valid?
+
+    session['devise.regist_data'] = { admin_user: @admin_user.attributes }
+    session['devise.regist_data'][:admin_user]['password'] = params[:admin_user][:password]
     @admin_profile = @admin_user.build_admin_profile
     render :new_admin_profile
   end
 
   def create_admin_profile
-    @admin_user = AdminUser.new(session["devise.regist_data"]["admin_user"])
+    @admin_user = AdminUser.new(session['devise.regist_data']['admin_user'])
     @admin_profile = AdminProfile.new(admin_profile_params)
-      unless @admin_profile.valid?
-        render :new_admin_profile and return
-      end
+    render :new_admin_profile and return unless @admin_profile.valid?
+
     @admin_user.save
     @admin_profile.admin_user_id = @admin_user.id
     @admin_profile.save
-    session["devise.regist_data"]["admin_user"].clear
+    session['devise.regist_data']['admin_user'].clear
     sign_in(:admin_user, @admin_user)
   end
 
   private
-  def admin_profile_params
-    params.require(:admin_profile).permit(:admin_image, :postal_code, :prefecture_id, :municipality, :address, :building_name, :phone_number, :profile)
-  end
 
+  def admin_profile_params
+    params.require(:admin_profile).permit(:admin_image, :postal_code, :prefecture_id, :municipality, :address,
+                                          :building_name, :phone_number, :profile)
+  end
 
   # GET /resource/sign_up
   # def new
@@ -93,6 +92,4 @@ class AdminUsers::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-
-
 end

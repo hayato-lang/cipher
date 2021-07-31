@@ -10,4 +10,3 @@ Rails.application.routes.draw do
   resources :events
   resources :admin_users, only: :show
 end
-
