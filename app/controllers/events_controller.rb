@@ -1,9 +1,9 @@
 class EventsController < ApplicationController
-  before_action :authenticate_admin_user!, except: [:index, :show]
-  before_action :set_event, only: [:show, :destroy, :edit, :update]
-  before_action :admin_user_authentication, only:[:destroy, :edit, :update]
+  before_action :authenticate_admin_user!, except: %i[index show]
+  before_action :set_event, only: %i[show destroy edit update]
+  before_action :admin_user_authentication, only: %i[destroy edit update]
   def index
-    @events = Event.includes(:admin_user).order('created_at DESC')
+    @events = Event.includes(:admin_user)
   end
 
   def new
@@ -19,16 +19,14 @@ class EventsController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
   def destroy
     @event.destroy
     redirect_to root_path
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @event.update(event_params)
@@ -50,8 +48,6 @@ class EventsController < ApplicationController
   end
 
   def admin_user_authentication
-    unless current_admin_user.id == @event.admin_user_id
-      redirect_to root_path
-    end
+    redirect_to root_path unless current_admin_user.id == @event.admin_user_id
   end
 end

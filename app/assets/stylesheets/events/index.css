@@ -1,4 +1,10 @@
+a {
+  text-decoration:none; 
+}
+
 /* イベント一覧 */
+
+
 .index-wrapper {
   width: 100%;
   height: 100%;
@@ -14,7 +20,7 @@
   color: #1e2022;
   text-align: center;
   padding: 91px 0 40px 0;
-  font-family: 'arial black'
+  font-family: 'arial black';
 }
 
 .event-contents {
@@ -38,11 +44,38 @@
   margin: 0 10px;
 }
 
-.event-details {
-  background-color: #e8e8e8;
+.event-date {
+  font-family: 'arial black';
+  padding-top: 15px;
+  font-size: 18px;
+  color: #1e2022;
+  letter-spacing: 2px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.event-name {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.7;
+  color: #1e2022;
+}
+
+.event-list>p {
+  text-decoration: none;
 }
 
 
+
+
+
+.admin-show-btn {
+  color: #0178cb;
+  padding-top: 40px;
+  font-size: 20px;
+  font-family: 'Kaushan Script', cursive ;
+
+}
 
 .slick-prev,
 .slick-next {

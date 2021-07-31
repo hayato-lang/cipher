@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   end
   root to: 'events#index'
   resources :events
+  resources :admin_users, only: :show
 end
-

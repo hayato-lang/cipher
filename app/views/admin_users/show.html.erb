@@ -1,0 +1,53 @@
+<% content_for :slide_full do %>
+  <%= stylesheet_link_tag 'admin_users/show' %>
+<% end %>
+
+
+<%= render "shared/header" %>
+<%# admin_profileのadmin_imageを貼り付ける %>
+<%# admin_profileのadmin_imageを貼り付ける %>
+<div class="show-wrapper">
+  <h2 class='shop-title'>
+    <%= @store_name %>
+  </h2>
+  <div class="user-contents">
+    <ul class='show-events'>
+      <%  @events.each do |event| %>
+      <li class="show-event">
+        <%= link_to event_path(event.id) do %>
+        <%= image_tag event.event_image, class:'show-event-img' %>
+        <div class='show-event-date'>
+          <%= event.event_date %>
+        </div>
+        <p class="show-event-name">
+          <%= event.name %>
+        </p>
+        <% end %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="profile-contents">
+    <p class="shop-name"><%= @store_name %></p>
+    <p class="postal-code">
+      〒
+      <%= "郵便番号" %>
+    </p>
+    <p class="prefecture-text">
+      <%= "都道府県" %><%= "市区町村" %>
+    </p>
+    <p class="address-text">
+      <%= "番地" %><%= "建物名" %>
+    </p>
+    <%= link_to "Google mapで見る", "#", class:"map-link" %>
+    <p class="tel">
+      TEL:
+      <%= link_to "電話番号", "#", class:"phone-number" %>
+    </p>
+    <p class="admin-profile">
+      <%= "プロフィール" %>
+    </p>
+  </div>
+</div>
+
+<%= render "shared/footer" %>

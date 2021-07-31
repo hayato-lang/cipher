@@ -1,0 +1,106 @@
+
+.shop-title {
+  font-size: 45px;
+  font-weight: 600;
+  letter-spacing: 5px;
+  text-align: center;
+  font-family: 'Kaushan Script', cursive ;
+  color: #0178cb;
+  padding: 80px 0 30px 0;
+}
+
+
+
+.show-events {
+  z-index: 1;
+  height: 100vh;
+}
+
+.show-event-img {
+  position: relative;
+  width: 86%;
+  height: 64vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: block;
+  margin: 0 auto;
+  background: transparent;
+}
+
+.show-event-date, .show-event-name {
+  text-align: center;
+  color: #1e2022;
+}
+
+.show-event-date {
+  padding-top: 22px;
+  font-family: 'arial black';
+  font-size: 30px;
+}
+
+.show-event-name {
+  font-size: 19px;
+  padding-top: 10px;
+}
+
+.slick-back,
+.slick-front {
+  position: absolute;
+  z-index: 3;
+  top: 38%;
+  cursor: pointer;
+  outline: none;
+  border-top: 2px solid #DDDDDD;
+  border-right: 2px solid #DDDDDD;
+  height: 25px;
+  width: 25px;
+}
+
+.slick-back {
+  left: 2.5%;
+  transform: rotate(-135deg);
+}
+
+.slick-front {
+  right: 2.5%;
+  transform: rotate(45deg);
+}
+
+.profile-contents {
+  margin: 0 25px;
+  padding: 25px 20px;
+  background-color: #e8e8e8;
+}
+
+.shop-name {
+  font-weight: 600;
+  font-size: 28px;
+  letter-spacing: 4.5px;
+  line-height: 1.1;
+  font-family: Helvetica;
+}
+
+.map-link {
+  height: 47px;
+  width: 100%;
+  border: 1px solid #1e2022;
+  display: block;
+  margin-top: 10px;
+  font-size: 100%;
+  font-weight: bold;
+  line-height: 3;
+  letter-spacing: 2px;
+  text-align: center;
+  color: #1e2022;
+}
+
+.tel {
+  margin: 5px 0 10px;
+}
+
+.phone-number {
+  color: #1e2022;
+  text-decoration: underline;
+}
+
