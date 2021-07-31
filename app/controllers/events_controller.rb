@@ -19,7 +19,10 @@ class EventsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @comment = Comment.new
+    @comments = @event.comments.all
+  end
 
   def destroy
     @event.destroy

@@ -36,6 +36,17 @@
           <td class="detail-value"><%= @event.content %></td>
       </tbody>
     </table>
-    <%= link_to '一覧へ戻る', root_path, class: 'list-back-link' %>
   </div>
+
+  <div class="comments-container">
+    <%= form_with(model: [@event, @comment], local: true) do |f| %>
+      <%= f.text_field :text, placeholder: "コメントする", rows:"2" %>
+      <%= f.submit 'SEND' %>
+    <% end %>
+    <div id ='commments'>
+    <% @comments.reverse_each do |comment| %>
+      <p><%= comment.text %></p>
+    <% end %>
+  </div>
+  <%= link_to '一覧へ戻る', root_path, class: 'list-back-link' %>
 </div>
