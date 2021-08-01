@@ -4,6 +4,9 @@
     <div class='search-bar-contents'>
      <%= link_to  "Cipher", root_path, class:"cipher-icon" %>
     </div>
+      <%= link_to(new_event_path, class: 'post-btn') do %>
+        <p class="purchase-btn-text">投稿する</p>
+      <% end %>
     <div class='nav'>
       <ul class='lists-right'>
         <% if admin_user_signed_in? %>

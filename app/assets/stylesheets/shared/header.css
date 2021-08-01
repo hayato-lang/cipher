@@ -47,6 +47,20 @@
 }
 
 
+.post-btn {
+  background: #BCB912;
+  opacity: 0.8;
+  line-height: 43px;
+  margin-top: 5px;
+  width: 105px;
+  border-radius: 8px;
+}
+
+.purchase-btn-text {
+  color: antiquewhite;
+  text-align: center;
+}
+
 .logout {
   text-decoration: none;
   font-family: 'Kaushan Script', cursive ;
