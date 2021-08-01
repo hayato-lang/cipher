@@ -76,3 +76,39 @@
   padding: 20px 0 20px 17px;
   color: black;
 }
+
+.comments-container {
+  width: 60%;
+  margin: 20px auto;
+  padding: 30px;
+  box-shadow: 0 0 10px rgb(41 41 41 / 20%);
+  box-sizing: border-box;
+}
+
+.comments-container> form input{
+  width: 100%;
+  margin: 5px 0 15px;
+  padding: 10px;
+  border: 1px solid #d8d8d8;
+  border-radius: 5px;
+  font-family: "游ゴシック", "YuGothic";
+  height: auto;
+  min-height: 50px;
+}
+
+.comments-container> form input[type="submit"]  {
+  background-color: #57c3e9;
+  border-radius: 20px;
+  color: #fff;
+  border: 0;
+  font-size: 18px;
+}
+
+.comments {
+  padding: 5px;
+  margin-top: 15px;
+}
+
+.comment {
+  padding-top: 10px;
+}

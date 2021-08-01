@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     post 'admin_profiles', to: 'admin_users/registrations#create_admin_profile'
   end
   root to: 'events#index'
-  resources :events
+  resources :events do 
+    resources :comments, only: :create
+  end
   resources :admin_users, only: :show
 end
