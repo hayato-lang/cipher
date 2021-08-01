@@ -27,6 +27,29 @@
   opacity: 0.8;
 }
 
+
+.search-input  {
+  width: 270px;
+  margin-right: 5px;
+  line-height: 43px;
+  border: 1px solid #d8d8d8;
+  border-radius: 5px;
+}
+
+.search-btn {
+  width: 10%;
+}
+
+.search-btn {
+  background-color: #57c3e9;
+  border-radius: 12px;
+  color: antiquewhite;
+  font-size: 18px;
+  border: 1px solid #57c3e9;
+  line-height: 40px;
+  width: 40px;
+}
+
 .post-btn {
   background: #BCB912;
   opacity: 0.8;
