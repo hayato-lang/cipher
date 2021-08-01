@@ -4,13 +4,15 @@
     <div class='search-bar-contents'>
      <%= link_to  "Cipher", root_path, class:"cipher-icon" %>
     </div>
+    <% if admin_user_signed_in? %>
       <%= link_to(new_event_path, class: 'post-btn') do %>
         <p class="purchase-btn-text">投稿する</p>
       <% end %>
+    <% end %>
     <div class='nav'>
       <ul class='lists-right'>
         <% if admin_user_signed_in? %>
-          <li><%= link_to current_admin_user.store_name, admin_user_path(current_admin_user.id), class: "store-name" %></li> 
+          <li><%= link_to current_admin_user.store_name, admin_user_path(current_admin_user.id), class: "name-btn" %></li> 
           <li><%= link_to 'Log out', destroy_admin_user_session_path, method: :delete, class: "logout" %></li> 
         <% else %> 
           <li><%= link_to 'Log in',  new_admin_user_session_path, class: "login" %></li>

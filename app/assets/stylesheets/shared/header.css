@@ -27,26 +27,6 @@
   opacity: 0.8;
 }
 
-.lists-right {
-  float: right;
-  font-size: 18px;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  padding: 1vh 0;
-  list-style: none;
-}
-
-.store-name {
-  text-decoration: none;
-  margin-right: 3vw;
-  font-family: 'Kaushan Script', cursive ;
-  color: #0178cb;
-  opacity: 1;
-  font-weight: bold;
-}
-
-
 .post-btn {
   background: #BCB912;
   opacity: 0.8;
@@ -61,7 +41,30 @@
   text-align: center;
 }
 
-.logout {
+
+
+.lists-right {
+  float: right;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1vh 0;
+  list-style: none;
+}
+
+.name-btn {
+  text-decoration: none;
+  margin-right: 3vw;
+  font-family: 'Kaushan Script', cursive ;
+  color: #0178cb;
+  opacity: 1;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+.logout, .login, .sign-up {
+  font-size: 20px;
   text-decoration: none;
   font-family: 'Kaushan Script', cursive ;
   color: #0178cb;
@@ -69,19 +72,9 @@
 }
 
 .login {
-  text-decoration: none;
-  line-height: 32px;
   margin-right: 3vw;
-  font-family: 'Kaushan Script', cursive ;
-  color: #0178cb;
-  opacity: 0.8;
 }
 
-.sign-up {
-  text-decoration: none;
-  font-family: 'Kaushan Script', cursive ;
-  color: #0178cb;
-  opacity: 0.8;
-}
+
 
 
