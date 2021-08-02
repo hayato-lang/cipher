@@ -31,21 +31,21 @@
     <p class="shop-name"><%= @store_name %></p>
     <p class="postal-code">
       〒
-      <%= "郵便番号" %>
+      <%= @admin_profile&.postal_code %>
     </p>
     <p class="prefecture-text">
-      <%= "都道府県" %><%= "市区町村" %>
+      <%= @admin_profile&.prefecture.name %><%= @admin_profile&.municipality %>
     </p>
     <p class="address-text">
-      <%= "番地" %><%= "建物名" %>
+      <%= @admin_profile&.address %><%= @admin_profile&.building_name %>
     </p>
     <%= link_to "Google mapで見る", "#", class:"map-link" %>
     <p class="tel">
       TEL:
-      <%= link_to "電話番号", "#", class:"phone-number" %>
+      <%= link_to @admin_profile&.phone_number, "#", class:"phone-number" %>
     </p>
     <p class="admin-profile">
-      <%= "プロフィール" %>
+      <%= @admin_profile&.profile %>
     </p>
   </div>
 </div>
