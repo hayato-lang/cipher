@@ -44,6 +44,7 @@
     <h2 class='store-titles'>ライブハウス一覧</h2>
     <ul class='store-lists'>
       <%# 商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
+      <% @events.each do |event| %>
       <li class='list'>
         <%= link_to "#" do %>
           <div class='store-img-content'>
@@ -51,14 +52,15 @@
           </div>
           <div class='store-info'>
             <h3 class='store-name'>
-              <%= '店名' %>
+              <%= "店名" %>
             </h3>
             <div class='store-details'>
-              <span><%= "都道府県" %><br><%= '市区町村' %></span>
+              <span><%= "都道府県" %><br><%= "市区町村" %></span>
             </div>
           </div>
         <% end %>
       </li>
+      <% end %>
       <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
     </ul>
   </div>
