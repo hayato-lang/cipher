@@ -5,7 +5,9 @@
 
 <%= render "shared/header" %>
 <%# admin_profileのadmin_imageを貼り付ける %>
-<%= image_tag  @admin_profile&.admin_image, class: 'show_admin_img' %>
+<% unless @admin_profile&.admin_image == nil %>
+  <%= image_tag  @admin_profile&.admin_image, class: 'show_admin_img' %>
+<% end %>
 <%# admin_profileのadmin_imageを貼り付ける %>
 <div class="show-wrapper">
   <h2 class='shop-title'>
