@@ -5,6 +5,7 @@
 
 <%= render "shared/header" %>
 <%# admin_profileのadmin_imageを貼り付ける %>
+<%= image_tag  @admin_profile&.admin_image, class: 'show_admin_img' %>
 <%# admin_profileのadmin_imageを貼り付ける %>
 <div class="show-wrapper">
   <h2 class='shop-title'>
@@ -34,7 +35,7 @@
       <%= @admin_profile&.postal_code %>
     </p>
     <p class="prefecture-text">
-      <%= @admin_profile&.prefecture.name %><%= @admin_profile&.municipality %>
+      <%= @admin_profile&.prefecture&.name %><%= @admin_profile&.municipality %>
     </p>
     <p class="address-text">
       <%= @admin_profile&.address %><%= @admin_profile&.building_name %>
