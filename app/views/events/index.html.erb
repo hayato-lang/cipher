@@ -39,20 +39,20 @@
   <div class='store-contents'>
     <h2 class='store-title'>Live House</h2>
     <ul class='store-lists'>
-      <% @events.each do |event| %>
+      <% @admin_users.each do |admin_user| %>
       <li class='list'>
         <%= link_to "#" do %>
-          <% unless event.admin_user&.admin_profile&.admin_image == nil %>
-            <%= image_tag  event.admin_user&.admin_profile&.admin_image, class: 'store-img' %>
+          <% unless admin_user&.admin_profile&.admin_image == nil %>
+            <%= image_tag  admin_user&.admin_profile&.admin_image, class: 'store-img' %>
           <% else %>
             <%= image_tag "laruskobe_003.jpg", class: "store-img" %>
           <% end %>
           <div class='store-info'>
             <h3 class='store-name'>
-              <%= event.admin_user.store_name %>
+              <%= admin_user.store_name %>
             </h3>
             <div class='store-details'>
-              <span><%= event.admin_user&.admin_profile&.prefecture&.name %><%=  event.admin_user&.admin_profile&.municipality  %></span>
+              <span><%= admin_user&.admin_profile&.prefecture&.name %><%=  admin_user&.admin_profile&.municipality  %></span>
             </div>
           </div>
         <% end %>

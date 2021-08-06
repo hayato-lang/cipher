@@ -4,6 +4,7 @@ class EventsController < ApplicationController
   before_action :admin_user_authentication, only: %i[destroy edit update]
   def index
     @events = Event.includes(admin_user: :admin_profile).order('created_at DESC')
+    @admin_users = AdminUser.includes(:admin_profile).order('created_at DESC')
   end
 
   def new
