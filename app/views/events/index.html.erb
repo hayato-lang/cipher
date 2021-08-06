@@ -1,6 +1,4 @@
-<% content_for :slick_parallel do %>
-  <%= stylesheet_link_tag 'events/index' %>
-<% end %>
+
 
 
 <%= render "shared/header" %>
@@ -39,7 +37,7 @@
 
   <%# /店舗一覧 %>
   <div class='store-contents'>
-    <h2 class='store-titles'>Live House</h2>
+    <h2 class='store-title'>Live House</h2>
     <ul class='store-lists'>
       <% @events.each do |event| %>
       <li class='list'>
@@ -70,6 +68,4 @@
 
 
 <%= render "shared/footer" %>
-<% content_for :parallel_slick do %>
-  <script src="slick_index.js"></script>
-<% end %>
+

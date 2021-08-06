@@ -7,7 +7,8 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 require('jquery')
-require('../slick_index')
+require('../event_list')
+require('../store_list')
 require('../slick_show')
 
 
