@@ -65,14 +65,18 @@ a {
   text-decoration: none;
 }
 
+.prefecture {
+  color: #BCB912;
+  font-size: 20px;
+}
 
 
 .admin-show-btn {
   color: #0178cb;
-  padding-top: 40px;
+  padding-top: 5px;
   font-size: 20px;
   font-family: 'Kaushan Script', cursive ;
-
+  display: inline-block;
 }
 
 .slick-prev,
@@ -132,6 +136,15 @@ a {
   background-color: #FFF;
 }
 
+.store-name {
+  color: #0178cb;
+  font-size: 18px;
+  font-family: 'Kaushan Script', cursive ;
+}
+
+.store-details {
+  color: #1e2022;
+}
 
 .store-lists img {
   width: 100%;

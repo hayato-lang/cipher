@@ -24,7 +24,7 @@
         <% end %>
         <div class='event-info'>
           <div class='event-details'>
-            <span><%= "都道府県" %><br><%= link_to event.admin_user.store_name , admin_user_path(event.admin_user_id) , class: "admin-show-btn"%></span>
+            <span class="prefecture"><%= event.admin_user&.admin_profile&.prefecture&.name %><br><%= link_to event.admin_user.store_name , admin_user_path(event.admin_user_id) , class: "admin-show-btn"%></span>
           </div>
         </div>
       </li>
@@ -52,7 +52,7 @@
               <%= event.admin_user.store_name %>
             </h3>
             <div class='store-details'>
-              <span><%= event.admin_user&.admin_profile&.prefecture&.name %><br><%=  event.admin_user&.admin_profile&.municipality  %></span>
+              <span><%= event.admin_user&.admin_profile&.prefecture&.name %><%=  event.admin_user&.admin_profile&.municipality  %></span>
             </div>
           </div>
         <% end %>
