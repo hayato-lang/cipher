@@ -1,6 +1,4 @@
-<% content_for :slick_parallel do %>
-  <%= stylesheet_link_tag 'events/index' %>
-<% end %>
+
 
 
 <%= render "shared/header" %>
@@ -11,7 +9,6 @@
   <h2 class='events-title'>PICK UP</h2>
   <div class='event-contents'>
     <ul class='event-lists'>
-      <%# 商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %> 
       <% @events.each do |event| %>
       <li class='event-list'>
         <%= link_to event_path(event.id) do %>
@@ -27,12 +24,11 @@
         <% end %>
         <div class='event-info'>
           <div class='event-details'>
-            <span><%= "都道府県" %><br><%= link_to event.admin_user.store_name , admin_user_path(event.admin_user_id) , class: "admin-show-btn"%></span>
+            <span class="prefecture"><%= event.admin_user&.admin_profile&.prefecture&.name %><br><%= link_to event.admin_user.store_name , admin_user_path(event.admin_user_id) , class: "admin-show-btn"%></span>
           </div>
         </div>
       </li>
       <% end %>
-      <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
     </ul>
   </div>  
   <%# /イベント一覧 %>
@@ -41,27 +37,27 @@
 
   <%# /店舗一覧 %>
   <div class='store-contents'>
-    <h2 class='store-titles'>ライブハウス一覧</h2>
+    <h2 class='store-title'>Live House</h2>
     <ul class='store-lists'>
-      <%# 商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
-      <% @events.each do |event| %>
+      <% @admin_users.each do |admin_user| %>
       <li class='list'>
         <%= link_to "#" do %>
-          <div class='store-img-content'>
+          <% unless admin_user&.admin_profile&.admin_image == nil %>
+            <%= image_tag  admin_user&.admin_profile&.admin_image, class: 'store-img' %>
+          <% else %>
             <%= image_tag "laruskobe_003.jpg", class: "store-img" %>
-          </div>
+          <% end %>
           <div class='store-info'>
             <h3 class='store-name'>
-              <%= "店名" %>
+              <%= admin_user.store_name %>
             </h3>
             <div class='store-details'>
-              <span><%= "都道府県" %><br><%= "市区町村" %></span>
+              <span><%= admin_user&.admin_profile&.prefecture&.name %><%=  admin_user&.admin_profile&.municipality  %></span>
             </div>
           </div>
         <% end %>
       </li>
       <% end %>
-      <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
     </ul>
   </div>
 </div>
@@ -72,6 +68,4 @@
 
 
 <%= render "shared/footer" %>
-<% content_for :parallel_slick do %>
-  <script src="slick_index.js"></script>
-<% end %>
+
