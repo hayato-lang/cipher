@@ -5,8 +5,10 @@
 
 require("@rails/ujs").start()
 require("@rails/activestorage").start()
+require("turbolinks").start()
 require("channels")
 require('jquery')
+require('jcanvas')
 require('../event_list')
 require('../store_list')
 require('../slick_show')
