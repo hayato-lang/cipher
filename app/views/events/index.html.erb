@@ -16,7 +16,7 @@
           <%= image_tag event.event_image, class: "event-img-list" %>
         </div>
         <div class="event-date">
-          <%= event.event_date  %>
+          <%= event.event_date.strftime("%Y年%m月%d日 %H:%M")  %>
         </div>
         <p class='event-name'>
             <%= event.name %>

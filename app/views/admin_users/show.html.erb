@@ -20,7 +20,7 @@
         <%= link_to event_path(event.id) do %>
         <%= image_tag event.event_image, class:'show-event-img' %>
         <div class='show-event-date'>
-          <%= event.event_date %>
+          <%= event.event_date.strftime("%Y年%m月%d日 %H:%M")  %>
         </div>
         <p class="show-event-name">
           <%= event.name %>

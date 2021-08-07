@@ -29,7 +29,7 @@
         </tr>
         <tr>
           <th class="detail-event">イベント日時</th>
-          <td class="detail-value"><%= @event.event_date %></td>
+          <td class="detail-value"><%= @event.event_date.strftime("%Y年%m月%d日 %H:%M") %></td>
         </tr>
         <tr>
           <th class="detail-event">イベント概要</th>
