@@ -7,10 +7,10 @@ Rails.application.routes.draw do
     post 'admin_profiles', to: 'admin_users/registrations#create_admin_profile'
   end
   root to: 'events#index'
-  resources :events do 
+  resources :events do
     resources :comments, only: :create
     collection do
-      get "search"
+      get 'search'
     end
   end
   resources :admin_users, only: :show
