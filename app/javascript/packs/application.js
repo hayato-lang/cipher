@@ -10,6 +10,7 @@ require('jquery')
 require('../event_list')
 require('../store_list')
 require('../slick_show')
+require('../preview_event')
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
