@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: %i[show destroy edit update]
   before_action :admin_user_authentication, only: %i[destroy edit update]
   def index
-    @events = Event.includes(admin_user: :admin_profile).order('created_at DESC')
+    @events = Event.includes(admin_user: :admin_profile).order("RAND()").limit(9)
     @admin_users = AdminUser.includes(:admin_profile).order('created_at DESC')
   end
 
