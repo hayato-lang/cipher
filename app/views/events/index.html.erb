@@ -34,7 +34,7 @@
   <%# /イベント一覧 %>
 
   
-  
+  <div id="map-container"></div>
 
   <%# /店舗一覧 %>
   <div class='store-contents'>
@@ -69,4 +69,16 @@
 
 
 <%= render "shared/footer" %>
+
+  <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+  <script>
+    $(function(){
+      $("#map-container").japanMap({
+          width:600,
+          onSelect : function(data){
+              alert(data.name);
+          }
+        });
+    });
+  </script>
 

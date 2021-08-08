@@ -18,6 +18,4 @@ Rails.application.config.assets.precompile += %w[
 Rails.application.config.assets.precompile += %w[
   admin_users/show.css
 ]
-Rails.application.config.assets.precompile += %w[ 
-  jquery.japan-map.min.js 
-]
+Rails.application.config.assets.precompile += %w(jquery.japan-map.min.js)
