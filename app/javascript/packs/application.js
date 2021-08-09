@@ -11,7 +11,7 @@ require('../event_list')
 require('../store_list')
 require('../slick_show')
 require('../preview_event')
-//= require jcanvas
+require('../jmap')
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
