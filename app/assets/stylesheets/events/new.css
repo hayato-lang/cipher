@@ -7,7 +7,17 @@
   padding: 10vh 15vw;
 }
 
+.pre-img img {
+  margin-top: 5px;
+  height: 200px;
+  width: 350px;
+}
 
+.new_image img {
+  margin-top: 5px;
+  height: 200px;
+  width: 350px;
+}
 
 .img-upload {
   display: flex;
