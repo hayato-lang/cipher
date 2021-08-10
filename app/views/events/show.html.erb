@@ -46,6 +46,7 @@
     <h4>＜コメント一覧＞</h4>
     <div id ='comments'>
       <% @comments.each do |comment| %>
+        <p class = "latest_comment"><%= comment.created_at %></p>
         <p class="comment"><%= comment.text %></p>
       <% end %>
     </div>
