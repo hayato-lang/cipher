@@ -22,7 +22,7 @@ class EventsController < ApplicationController
 
   def show
     @comment = Comment.new
-    @comments = @event.comments.all
+    @comments = @event.comments.all.order('created_at DESC')
   end
 
   def destroy
