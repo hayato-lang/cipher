@@ -57,7 +57,8 @@ end
 gem 'active_hash'
 gem 'devise'
 gem 'image_processing', '~> 1.2'
-gem 'jquery-rails'
+gem 'jcanvas-rails', '~> 0.1.0'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'mini_magick'
 gem 'pry-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

@@ -108,6 +108,11 @@
   margin-top: 15px;
 }
 
+.latest_comment {
+  padding-top: 8px;
+  color: #BCB912;
+}
+
 .comment {
-  padding-top: 10px;
+  padding-top: 4px;
 }

@@ -19,13 +19,20 @@ a {
   font-weight: 600;
   color: #1e2022;
   text-align: center;
-  padding: 91px 0 40px 0;
   font-family: 'arial black';
+}
+
+.events-title {
+  padding: 91px 0 40px 0;
+}
+
+.store-title {
+  padding: 53px 0 40px 0;
+
 }
 
 .event-contents {
   width: 100%;
-  margin-bottom: 300px;
 }
 
 .event-lists {
@@ -130,6 +137,10 @@ a {
 }
 
 /* イベント一覧 */
+
+#japan-map {
+  padding-top: 280px;
+}
 
 /* 店舗一覧 */
 .store-contents {
