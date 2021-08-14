@@ -4,7 +4,7 @@
     <div class='search-bar-contents'>
      <%= link_to  "Cipher", root_path, class:"cipher-icon" %>
     </div>
-    <%= form_with(url: search_events_path, local: true, method: :get, class:"search-form") do |form| %>
+    <%= form_with(url: "#", local: true, method: :get, class:"search-form") do |form| %>
       <div class= "form-container">
         <%= form.text_field :keyword, placeholder:"イベントを検索する", class:"search-input" %>
         <%= form.submit "検索", class: "search-btn" %>
