@@ -62,3 +62,4 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'mini_magick'
 gem 'pry-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem "aws-sdk-s3", require: false
