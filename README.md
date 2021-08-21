@@ -3,6 +3,26 @@
 <br>
 ユーザー（ライブハウス管理者）は登録すると、イベント情報を投稿することができます。
 
+# 使用技術
+- Ruby 2.6.5
+- Ruby on Rails 6.0.4
+- MySQL 5.6.51
+- Nginx
+- AWS
+  - EC2
+  - S3
+- Capistrano3
+- RSpec
+
+# 機能一覧
+- ユーザー登録、ログイン機能（devise）
+- 投稿機能
+  - イベント投稿(ActiveStorageを駆使し画像を含めて投稿)
+コメント機能(Ajax)
+
+# テスト
+- RSpec
+  - 単体テスト(model)
 
 
 
