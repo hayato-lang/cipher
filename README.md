@@ -7,7 +7,6 @@
 | store_name         | string  |  null: false               | 
 | email              | string  |  null: false, unique: true | 
 | encrypted_password | string  |  null: false               | 
-| store_image        |         | Active Storageで実装        | 
 
 ### Association
 - has_many :events
@@ -26,7 +25,8 @@
 | building_name      | string     | null: false                    | 
 | phone_number       | string     | null: false                    | 
 | profile            | text       | null: false                    | 
-| header_image       |            | Active Storageで実装            | 
+| store_image       |            | Active Storageで実装            
+| 
 | user               | references | null: false, foreign_key: true |
 
 ### Association
@@ -41,7 +41,7 @@
 | name            | string     | null: false,                   |
 | content         | text       | null: false,                   | 
 | event_date      | date       | null: false,                   | 
-| image           |            | Active Storageで実装            | 
+| event_image     |            | Active Storageで実装            | 
 
 
 ### Association
