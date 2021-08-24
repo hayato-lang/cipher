@@ -26,19 +26,27 @@ RSpec.describe "AdminUsers", type: :system do
     image_path = Rails.root.join('public/images/test_admin_image.jpg')
     attach_file('admin_profile[admin_image]', image_path, make_visible: true)
     fill_in 'postal_code' , with: @admin_profile.postal_code
-    select '---', from: 'admin_profile[prefecture_id]'
+    select '兵庫県', from: 'admin_profile[prefecture_id]'
     fill_in 'municipality' , with: @admin_profile.municipality
     fill_in 'address' , with: @admin_profile.address
     fill_in 'building-name' , with: @admin_profile.building_name
     fill_in 'phone-number' , with: @admin_profile.phone_number
     fill_in 'profile' , with: @admin_profile.profile
     # 会員登録ボタンを押すとAdminUserモデルとAdminProfileのカウントが１上がることを確認する
-    # 登録完了ページへ遷移したことを確認する
-    # トップへ戻るを押すとトップページへ遷移したことを確認する
+    expect{
+      find('input[name = "commit"]').click
+    }.to change { AdminUser.count }.by(1)
+    expect(page).to have_content 'トップへ戻る'
+    # トップページへ遷移する
+    visit root_path
     # ログアウトボタンが表示されることを確認する
+    expect(page).to have_content("Log Out")
     # サインアップページへ遷移するボタンや、ログインページへ遷移するボタンが表示されていないことを確認する
+    expect(page).to have_no_content('Sign Up')
+    expect(page).to have_no_content('Log In')
     end
   end
+
 
   context 'ユーザー新規登録ができない時' do
     it '誤った情報ではユーザー新規登録ができずに新規登録ページへ戻ってくる' do
