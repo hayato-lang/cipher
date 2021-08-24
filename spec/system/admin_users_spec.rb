@@ -23,7 +23,8 @@ RSpec.describe "AdminUsers", type: :system do
     # ウィザード形式なので正しいページに遷移しているのか確認
     expect(page).to have_content('郵便番号')
     # ユーザー詳細情報を入力する
-    # fill_in 'profile-image', with: @admin_profile.admin_image
+    image_path = Rails.root.join('public/images/test_admin_image.jpg')
+    attach_file('admin_profile[admin_image]', image_path, make_visible: true)
     fill_in 'postal_code' , with: @admin_profile.postal_code
     select '---', from: 'admin_profile[prefecture_id]'
     fill_in 'municipality' , with: @admin_profile.municipality
@@ -31,7 +32,6 @@ RSpec.describe "AdminUsers", type: :system do
     fill_in 'building-name' , with: @admin_profile.building_name
     fill_in 'phone-number' , with: @admin_profile.phone_number
     fill_in 'profile' , with: @admin_profile.profile
-    
     # 会員登録ボタンを押すとAdminUserモデルとAdminProfileのカウントが１上がることを確認する
     # 登録完了ページへ遷移したことを確認する
     # トップへ戻るを押すとトップページへ遷移したことを確認する
