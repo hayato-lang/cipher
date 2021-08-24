@@ -51,12 +51,67 @@ RSpec.describe "AdminUsers", type: :system do
   context 'ユーザー新規登録ができない時' do
     it '誤った情報ではユーザー新規登録ができずに新規登録ページへ戻ってくる' do
     # トップページに移動する
+    visit root_path
     # トップページにサインアップページへ遷移するボタンがあることを確認する
+    expect(page).to have_content('Sign')
     # 新規登録ページへ移動する
+    visit new_admin_user_registration_path
     # ユーザー情報を入力する
+    fill_in 'store_name', with: ''
+    fill_in 'email', with: ''
+    fill_in 'password', with: ''
+    fill_in 'password-confirmation', with:''
     # サインアップボタンを押してもユーザーモデルのカウントは上がらないことを確認する
+    expect{
+      find('input[name="commit"]').click
+    }.to change { AdminUser.count }.by(0)
     # 新規登録ページへ戻されることを確認する
+    expect(current_path).to eq admin_user_registration_path
     end
   end
+end
 
+RSpec.describe 'ログイン', type: :system do
+  before do
+    @admin_user = FactoryBot.create(:admin_user)
+  end
+  context 'ログインができるとき' do
+    it '保存されているユーザーの情報と合致すればログインできる' do
+      # トップページに移動する
+      visit root_path
+      # トップページにログインページへ遷移するボタンがあることを確認する
+      expect(page).to have_content("Log In")
+      # ログインページへ遷移する
+      visit new_admin_user_session_path
+      # 正しいユーザー情報を入力する
+      fill_in 'email', with: @admin_user.email
+      fill_in  'password', with: @admin_user.password
+      # ログインボタンを押す
+      find('input[name="commit"]').click
+      # トップページへ遷移することを確認する
+      expect(current_path).to eq(root_path)
+      # ログアウトボタンが表示されることを確認する
+      expect(page).to have_content("Log Out")
+      # サインアップページへ遷移するボタンや、ログインページへ遷移するボタンが表示されていないことを確認する
+      expect(page).to have_no_content('Sign Up')
+      expect(page).to have_no_content('Log In')
+    end
+  end
+  context 'ログインができないとき' do
+     it '保存されているユーザーの情報と合致しないとログインできない' do
+       # トップページに移動する
+       visit root_path
+       # トップページにログインページへ遷移するボタンがあることを確認する
+       expect(page).to have_content("Log In")
+       # ログインページへ遷移する
+       visit new_admin_user_session_path
+       # ユーザー情報を入力する
+       fill_in 'email', with: ''
+       fill_in  'password', with: ''
+       # ログインボタンを押す
+       find('input[name="commit"]').click
+       # ログインページへ戻されることを確認する
+       expect(current_path).to eq(new_admin_user_session_path)
+     end
+  end
 end
