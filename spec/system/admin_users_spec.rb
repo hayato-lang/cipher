@@ -25,7 +25,7 @@ RSpec.describe "AdminUsers", type: :system do
     # ユーザー詳細情報を入力する
     # fill_in 'profile-image', with: @admin_profile.admin_image
     fill_in 'postal_code' , with: @admin_profile.postal_code
-    # fill_in 'profile-prefecture' , with: @admin_profile.prefecture_id
+    select '---', from: 'admin_profile[prefecture_id]'
     fill_in 'municipality' , with: @admin_profile.municipality
     fill_in 'address' , with: @admin_profile.address
     fill_in 'building-name' , with: @admin_profile.building_name
