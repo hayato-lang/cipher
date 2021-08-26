@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Events", type: :system do
+RSpec.describe "イベント投稿", type: :system do
   before do
     @admin_user = FactoryBot.create(:admin_user)
     @event = FactoryBot.build(:event)
@@ -35,7 +35,7 @@ RSpec.describe "Events", type: :system do
       # トップページへ遷移することを確認する
       expect(current_path).to eq(root_path)
       # ユーザーの詳細ページへ移動する
-      visit admin_user_path(@admin_user.id)
+      visit admin_user_path(@admin_user)
       # ユーザー詳細ページには先ほど投稿した内容の投稿が存在することを確認する（画像）
       expect(page).to have_selector ".show-event-img"
       # ユーザー詳細ページには先ほど投稿した内容のイベント日時が存在することを確認する（イベント名）
@@ -51,6 +51,49 @@ RSpec.describe "Events", type: :system do
       visit root_path
       # 新規投稿ページへのボタンがないことを確認する
       expect(page).to have_no_content('投稿する')
+    end
+  end
+end
+
+RSpec.describe 'イベント編集', type: :system do
+  before do
+    @event1 = FactoryBot.create(:event)
+    @event2 = FactoryBot.create(:event)
+  end
+  context 'イベント編集ができるとき' do
+    it 'ログインしたユーザーは自分が投稿したイベントの編集ができる' do
+      # event1を投稿したユーザーでログインする
+      visit new_admin_user_session_path
+      fill_in 'email', with: @event1.admin_user.email
+      fill_in 'password', with: @event1.admin_user.password
+      find('input[name="commit"]').click
+      # 編集ページへ遷移する
+      visit edit_event_path(@event1)
+      # すでに投稿済みの内容がフォームに入っていることを確認する
+      expect(
+        find('#new_image').value
+      ).to eq(@event1.event_image)
+      expect(
+        find('#event_name').value
+      ).to eq(@event1.name)
+      # 投稿内容を編集する
+      # 編集してもTweetモデルのカウントは変わらないことを確認する
+      # 編集完了画面に遷移したことを確認する
+      # 「更新が完了しました」の文字があることを確認する
+      # トップページに遷移する
+      # トップページには先ほど変更した内容のツイートが存在することを確認する（画像）
+      # トップページには先ほど変更した内容のツイートが存在することを確認する（テキスト）
+    end
+  end
+  context 'イベント編集ができないとき' do
+    it 'ログインしたユーザーは自分以外が投稿したイベントの編集画面に遷移できない' do
+      # ツイート1を投稿したユーザーでログインする
+      # ツイート2に「編集」へのリンクがないことを確認する
+    end
+    it 'ログインしていないとイベントの編集画面に遷移できない' do
+      # トップページにいる
+      # ツイート1に「編集」へのリンクがないことを確認する
+      # ツイート2に「編集」へのリンクがないことを確認する
     end
   end
 end
