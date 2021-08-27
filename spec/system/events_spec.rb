@@ -70,30 +70,58 @@ RSpec.describe 'イベント編集', type: :system do
       # 編集ページへ遷移する
       visit edit_event_path(@event1)
       # すでに投稿済みの内容がフォームに入っていることを確認する
-      expect(
-        find('#new_image').value
-      ).to eq(@event1.event_image)
+      # expect(
+      #   find('#new_image').value
+      # ).to eq(image_path)
       expect(
         find('#event_name').value
       ).to eq(@event1.name)
       # 投稿内容を編集する
+      image_path = Rails.root.join('public/images/test_event_image.jpg')
+      attach_file('event[event_image]', image_path, make_visible: true)
+      fill_in 'event_name', with: "#{@event1.name}+編集したテキスト"
+      select '2023', from: 'event[event_date(1i)]'
+      select '3', from: 'event[event_date(2i)]'
+      select '4', from: 'event[event_date(3i)]'
+      select '20', from: 'event[event_date(4i)]'
+      select '30', from: 'event[event_date(5i)]'
+      fill_in 'event_content', with: "#{@event1.content}+編集したテキスト"
       # 編集してもTweetモデルのカウントは変わらないことを確認する
-      # 編集完了画面に遷移したことを確認する
-      # 「更新が完了しました」の文字があることを確認する
-      # トップページに遷移する
-      # トップページには先ほど変更した内容のツイートが存在することを確認する（画像）
-      # トップページには先ほど変更した内容のツイートが存在することを確認する（テキスト）
+      expect{
+        find('input[name="commit"]').click
+      }.to change { Event.count }.by(0)
+      # イベント詳細ページに遷移したことを確認する
+      expect(current_path).to eq(event_path(@event1))
+      # イベント詳細ページには先ほど変更したイベント内容が存在することを確認する（画像）
+      # イベント詳細ページには先ほど変更したイベント内容が存在することを確認する（イベント名）
+      expect(page).to have_content("#{@event1.name}+編集したテキスト")
+      # イベント詳細ページには先ほど変更したイベント内容が存在することを確認する (日時）
+      expect(page).to have_content("2023年03月04日 20:30")
+      # イベント詳細ページには先ほど変更したイベント内容が存在することを確認する（イベント概要）
+      expect(page).to have_content("#{@event1.content}+編集したテキスト")
     end
   end
   context 'イベント編集ができないとき' do
     it 'ログインしたユーザーは自分以外が投稿したイベントの編集画面に遷移できない' do
       # ツイート1を投稿したユーザーでログインする
-      # ツイート2に「編集」へのリンクがないことを確認する
+      visit new_admin_user_session_path
+      fill_in 'email', with: @event1.admin_user.email
+      fill_in 'password', with: @event1.admin_user.password
+      find('input[name="commit"]').click
+      # @event2の編集ページへ遷移する
+      visit edit_event_path(@event2)
+      # @event2に「編集」へのリンクがないことを確認する
+      expect(page).to have_no_link 'イベントの編集', href: edit_event_path(@event2)
     end
     it 'ログインしていないとイベントの編集画面に遷移できない' do
-      # トップページにいる
+      # @event1の詳細ページへ遷移する
+      visit edit_event_path(@event1)
       # ツイート1に「編集」へのリンクがないことを確認する
+      expect(page).to have_no_link 'イベントの編集', href: edit_event_path(@event1)
+      # @event2の編集ページへ遷移する
+      visit edit_event_path(@event2)
       # ツイート2に「編集」へのリンクがないことを確認する
+      expect(page).to have_no_link 'イベントの編集', href: edit_event_path(@event2)
     end
   end
 end
