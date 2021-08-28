@@ -37,7 +37,7 @@ RSpec.describe "イベント投稿", type: :system do
       # ユーザーの詳細ページへ移動する
       visit admin_user_path(@admin_user)
       # ユーザー詳細ページには先ほど投稿した内容の投稿が存在することを確認する（画像）
-      expect(page).to have_selector ".show-event-img"
+      expect(page).to have_selector("img[src$='test_event_image.jpg']")
       # ユーザー詳細ページには先ほど投稿した内容のイベント日時が存在することを確認する（イベント名）
       expect(page).to have_content("2022年02月10日 19:00")
       # ユーザー詳細ページには先ほど投稿したイベント名が存在することを確認する (イベント日）
@@ -70,14 +70,30 @@ RSpec.describe 'イベント編集', type: :system do
       # 編集ページへ遷移する
       visit edit_event_path(@event1)
       # すでに投稿済みの内容がフォームに入っていることを確認する
-      # expect(
-      #   find('#new_image').value
-      # ).to eq(image_path)
+      expect(page).to have_selector("img[src$='test_event_image.jpg']")
       expect(
         find('#event_name').value
       ).to eq(@event1.name)
+      expect(
+        find('#event_event_date_1i').value
+      ).to eq('2021')
+      expect(
+        find('#event_event_date_2i').value
+      ).to eq('10')
+      expect(
+        find('#event_event_date_3i').value
+      ).to eq('9')
+      expect(
+        find('#event_event_date_4i').value
+      ).to eq('21')
+      expect(
+        find('#event_event_date_5i').value
+      ).to eq('00')
+      expect(
+        find('#event_content').value
+      ).to eq(@event1.content)
       # 投稿内容を編集する
-      image_path = Rails.root.join('public/images/test_event_image.jpg')
+      image_path = Rails.root.join('public/images/test2_event_image.jpg')
       attach_file('event[event_image]', image_path, make_visible: true)
       fill_in 'event_name', with: "#{@event1.name}+編集したテキスト"
       select '2023', from: 'event[event_date(1i)]'
@@ -93,6 +109,7 @@ RSpec.describe 'イベント編集', type: :system do
       # イベント詳細ページに遷移したことを確認する
       expect(current_path).to eq(event_path(@event1))
       # イベント詳細ページには先ほど変更したイベント内容が存在することを確認する（画像）
+      expect(page).to have_selector("img[src$='test2_event_image.jpg']")
       # イベント詳細ページには先ほど変更したイベント内容が存在することを確認する（イベント名）
       expect(page).to have_content("#{@event1.name}+編集したテキスト")
       # イベント詳細ページには先ほど変更したイベント内容が存在することを確認する (日時）
@@ -149,6 +166,7 @@ RSpec.describe 'イベント削除', type: :system do
       # ユーザー詳細ページへ遷移する
       visit admin_user_path(@event1.admin_user_id)
       # ユーザー詳細ページにはevent1の内容が存在しないことを確認する（画像）
+      expect(page).to have_no_selector("img[src$='test_event_image.jpg']")
       # ユーザー詳細ページにはevent1の内容が存在しないことを確認する（日時）
       expect(page).to have_no_content("#2021-10-09 21:00:00")
       # ユーザー詳細ページにはevent1の内容が存在しないことを確認する（イベント名）
