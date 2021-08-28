@@ -103,25 +103,79 @@ RSpec.describe 'イベント編集', type: :system do
   end
   context 'イベント編集ができないとき' do
     it 'ログインしたユーザーは自分以外が投稿したイベントの編集画面に遷移できない' do
-      # ツイート1を投稿したユーザーでログインする
+      # event1を投稿したユーザーでログインする
       visit new_admin_user_session_path
       fill_in 'email', with: @event1.admin_user.email
       fill_in 'password', with: @event1.admin_user.password
       find('input[name="commit"]').click
-      # @event2の編集ページへ遷移する
+      # event2の編集ページへ遷移する
       visit edit_event_path(@event2)
-      # @event2に「編集」へのリンクがないことを確認する
+      # event2に「編集」へのリンクがないことを確認する
       expect(page).to have_no_link 'イベントの編集', href: edit_event_path(@event2)
     end
     it 'ログインしていないとイベントの編集画面に遷移できない' do
-      # @event1の詳細ページへ遷移する
+      # event1の詳細ページへ遷移する
       visit edit_event_path(@event1)
-      # ツイート1に「編集」へのリンクがないことを確認する
+      # event1に「編集」へのリンクがないことを確認する
       expect(page).to have_no_link 'イベントの編集', href: edit_event_path(@event1)
-      # @event2の編集ページへ遷移する
+      # event2の編集ページへ遷移する
       visit edit_event_path(@event2)
-      # ツイート2に「編集」へのリンクがないことを確認する
+      # event2に「編集」へのリンクがないことを確認する
       expect(page).to have_no_link 'イベントの編集', href: edit_event_path(@event2)
+    end
+  end
+end
+
+RSpec.describe 'イベント削除', type: :system do
+  before do
+    @event1 = FactoryBot.create(:event)
+    @event2 = FactoryBot.create(:event)
+  end
+  context 'イベント削除ができるとき' do
+    it 'ログインしたユーザーは自らが投稿したイベントの削除ができる' do
+      # event1を投稿したユーザーでログインする
+      visit new_admin_user_session_path
+      fill_in 'email', with: @event1.admin_user.email
+      fill_in 'password', with: @event1.admin_user.password
+      find('input[name="commit"]').click
+      # イベント詳細ページへ遷移する
+      visit event_path(@event1)
+      # event1に「削除」へのリンクがあることを確認する
+      expect(page).to have_link '削除', href: event_path(@event1)
+      # 投稿を削除するとレコードの数が1減ることを確認する
+      expect{
+        find_link('削除', href: event_path(@event1)).click
+      }.to change { Event.count }.by(-1)
+      # ユーザー詳細ページへ遷移する
+      visit admin_user_path(@event1.admin_user_id)
+      # ユーザー詳細ページにはevent1の内容が存在しないことを確認する（画像）
+      # ユーザー詳細ページにはevent1の内容が存在しないことを確認する（日時）
+      expect(page).to have_no_content("#2021-10-09 21:00:00")
+      # ユーザー詳細ページにはevent1の内容が存在しないことを確認する（イベント名）
+      expect(page).to have_no_content("#{@event1.name}")
+    end
+  end
+  context 'イベント削除ができないとき' do
+    it 'ログインしたユーザーは自分以外が投稿したイベントの削除ができない' do
+      # event1を投稿したユーザーでログインする
+      visit new_admin_user_session_path
+      fill_in 'email', with: @event1.admin_user.email
+      fill_in 'password', with: @event1.admin_user.password
+      find('input[name="commit"]').click
+      # イベント詳細ページへ遷移する
+      visit event_path(@event2)      
+      # event2に「削除」へのリンクがないことを確認する
+      expect(page).to have_no_link '削除', href: edit_event_path(@event2)
+    end
+    it 'ログインしていないとイベントの削除ボタンがない' do
+      # event1のイベント詳細ページへ遷移する
+      visit event_path(@event1) 
+      # ツイート1に「削除」へのリンクがないことを確認する
+      expect(page).to have_no_link '削除', href: edit_event_path(@event1)
+      # event2のイベント詳細ページへ遷移する
+      visit event_path(@event2) 
+      # ツイート2に「削除」へのリンクがないことを確認する
+      expect(page).to have_no_link '削除', href: edit_event_path(@event2)
     end
   end
 end
