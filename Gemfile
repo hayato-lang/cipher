@@ -31,14 +31,14 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'capistrano'
+  gem 'capistrano3-unicorn'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'rspec-rails'
-  gem 'capistrano'
-  gem 'capistrano-rbenv'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rails'
-  gem 'capistrano3-unicorn'
 end
 
 group :development do
@@ -59,11 +59,12 @@ group :test do
 end
 
 group :production do
-gem 'unicorn', '5.4.1'
+  gem 'unicorn', '5.4.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'active_hash'
+gem 'aws-sdk-s3', require: false
 gem 'devise'
 gem 'image_processing', '~> 1.2'
 gem 'jcanvas-rails', '~> 0.1.0'
@@ -71,4 +72,3 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'mini_magick'
 gem 'pry-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-gem "aws-sdk-s3", require: false

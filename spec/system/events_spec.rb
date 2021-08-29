@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "イベント投稿", type: :system do
+RSpec.describe 'イベント投稿', type: :system do
   before do
     @admin_user = FactoryBot.create(:admin_user)
     @event = FactoryBot.build(:event)
@@ -11,7 +11,7 @@ RSpec.describe "イベント投稿", type: :system do
       # ログインする
       visit new_admin_user_session_path
       fill_in 'email', with: @admin_user.email
-      fill_in  'password', with: @admin_user.password
+      fill_in 'password', with: @admin_user.password
       find('input[name="commit"]').click
       expect(current_path).to eq(root_path)
       # 新規投稿ページへのボタンがあることを確認する
@@ -29,9 +29,9 @@ RSpec.describe "イベント投稿", type: :system do
       select '00', from: 'event[event_date(5i)]'
       fill_in 'event_content', with: @event.content
       # 送信するとEventモデルのカウントが１上がることを確認する
-      expect {
+      expect do
         find('input[name = "commit"]').click
-      }.to change {Event.count}.by(1)
+      end.to change { Event.count }.by(1)
       # トップページへ遷移することを確認する
       expect(current_path).to eq(root_path)
       # ユーザーの詳細ページへ移動する
@@ -39,7 +39,7 @@ RSpec.describe "イベント投稿", type: :system do
       # ユーザー詳細ページには先ほど投稿した内容の投稿が存在することを確認する（画像）
       expect(page).to have_selector("img[src$='test_event_image.jpg']")
       # ユーザー詳細ページには先ほど投稿した内容のイベント日時が存在することを確認する（イベント名）
-      expect(page).to have_content("2022年02月10日 19:00")
+      expect(page).to have_content('2022年02月10日 19:00')
       # ユーザー詳細ページには先ほど投稿したイベント名が存在することを確認する (イベント日）
       expect(page).to have_content(@event.name)
     end
@@ -103,9 +103,9 @@ RSpec.describe 'イベント編集', type: :system do
       select '30', from: 'event[event_date(5i)]'
       fill_in 'event_content', with: "#{@event1.content}+編集したテキスト"
       # 編集してもTweetモデルのカウントは変わらないことを確認する
-      expect{
+      expect  do
         find('input[name="commit"]').click
-      }.to change { Event.count }.by(0)
+      end.to change { Event.count }.by(0)
       # イベント詳細ページに遷移したことを確認する
       expect(current_path).to eq(event_path(@event1))
       # イベント詳細ページには先ほど変更したイベント内容が存在することを確認する（画像）
@@ -113,7 +113,7 @@ RSpec.describe 'イベント編集', type: :system do
       # イベント詳細ページには先ほど変更したイベント内容が存在することを確認する（イベント名）
       expect(page).to have_content("#{@event1.name}+編集したテキスト")
       # イベント詳細ページには先ほど変更したイベント内容が存在することを確認する (日時）
-      expect(page).to have_content("2023年03月04日 20:30")
+      expect(page).to have_content('2023年03月04日 20:30')
       # イベント詳細ページには先ほど変更したイベント内容が存在することを確認する（イベント概要）
       expect(page).to have_content("#{@event1.content}+編集したテキスト")
     end
@@ -160,17 +160,17 @@ RSpec.describe 'イベント削除', type: :system do
       # event1に「削除」へのリンクがあることを確認する
       expect(page).to have_link '削除', href: event_path(@event1)
       # 投稿を削除するとレコードの数が1減ることを確認する
-      expect{
+      expect do
         find_link('削除', href: event_path(@event1)).click
-      }.to change { Event.count }.by(-1)
+      end.to change { Event.count }.by(-1)
       # ユーザー詳細ページへ遷移する
       visit admin_user_path(@event1.admin_user_id)
       # ユーザー詳細ページにはevent1の内容が存在しないことを確認する（画像）
       expect(page).to have_no_selector("img[src$='test_event_image.jpg']")
       # ユーザー詳細ページにはevent1の内容が存在しないことを確認する（日時）
-      expect(page).to have_no_content("#2021-10-09 21:00:00")
+      expect(page).to have_no_content('#2021-10-09 21:00:00')
       # ユーザー詳細ページにはevent1の内容が存在しないことを確認する（イベント名）
-      expect(page).to have_no_content("#{@event1.name}")
+      expect(page).to have_no_content(@event1.name.to_s)
     end
   end
   context 'イベント削除ができないとき' do
@@ -181,17 +181,17 @@ RSpec.describe 'イベント削除', type: :system do
       fill_in 'password', with: @event1.admin_user.password
       find('input[name="commit"]').click
       # イベント詳細ページへ遷移する
-      visit event_path(@event2)      
+      visit event_path(@event2)
       # event2に「削除」へのリンクがないことを確認する
       expect(page).to have_no_link '削除', href: edit_event_path(@event2)
     end
     it 'ログインしていないとイベントの削除ボタンがない' do
       # event1のイベント詳細ページへ遷移する
-      visit event_path(@event1) 
+      visit event_path(@event1)
       # ツイート1に「削除」へのリンクがないことを確認する
       expect(page).to have_no_link '削除', href: edit_event_path(@event1)
       # event2のイベント詳細ページへ遷移する
-      visit event_path(@event2) 
+      visit event_path(@event2)
       # ツイート2に「削除」へのリンクがないことを確認する
       expect(page).to have_no_link '削除', href: edit_event_path(@event2)
     end
