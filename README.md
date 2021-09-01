@@ -43,7 +43,7 @@
 ### Association
 - has_many :events
 - has_many :comments
-- has_one :admin
+- has_one :admin_profile
 
 
 ## admin_profilesテーブル
@@ -57,12 +57,23 @@
 | building_name      | string     | null: false                    | 
 | phone_number       | string     | null: false                    | 
 | profile            | text       | null: false                    | 
-| store_image       |            | Active Storageで実装            
-| 
-| user               | references | null: false, foreign_key: true |
+| store_image        |            | Active Storageで実装            |
+| admin_user         | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :user
+- belongs_to :admin_user
+
+## usersテーブル
+
+| Column             | Types  | Options                    | 
+| ------------------ | ------ | -------------------------- | 
+| nickname           | string | null:false                 | 
+| email              | string | null: false, unique: true  | 
+| encrypted_password | string | null:false                 | 
+
+### Association
+
+- has_many :comments
 
 
 ## eventsテーブル
@@ -77,7 +88,7 @@
 
 
 ### Association
-- belongs_to :user
+- belongs_to :admin_user
 - has_many :comments
 
 ## commentsテーブル
