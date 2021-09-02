@@ -15,6 +15,17 @@
         <p class="purchase-btn-text">投稿する</p>
       <% end %>
     <% end %>
+    <div class='nav2'>
+      <ul class='lists-right2'>
+        <% if user_signed_in? %>
+          <li><%= link_to current_user.nickname, user_path(current_user.id), class: "nickname-btn" %></li> 
+          <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "logout2" %></li> 
+        <% else %> 
+          <li><%= link_to 'Log In',  new_user_session_path, class: "login2" %></li>
+          <li><%= link_to 'Sign Up', new_user_registration_path, class: "sign-up2" %></li>
+        <% end %> 
+     </ul>     
+    </div>
     <div class='nav'>
       <ul class='lists-right'>
         <% if admin_user_signed_in? %>
