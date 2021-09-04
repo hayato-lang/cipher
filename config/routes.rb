@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   root to: 'events#index'
   resources :events do
     resources :comments, only: :create
-    collection do 
+    collection do
       get 'search'
     end
   end

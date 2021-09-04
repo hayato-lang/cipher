@@ -11,8 +11,8 @@ class Event < ApplicationRecord
   validate :day_after_today
 
   def self.search(search)
-    if search != ""
-      Event.where('name LIKE(?)', "%#{search}%")      
+    if search != ''
+      Event.where('name LIKE(?)', "%#{search}%")
     else
       Event.all
     end
