@@ -15,30 +15,36 @@
         <p class="purchase-btn-text">投稿する</p>
       <% end %>
     <% end %>
-    <div class='nav2'>
-      <ul class='lists-right2'>
-        <% if user_signed_in? %>
-          <li><%= link_to current_user.nickname, user_path(current_user.id), class: "nickname-btn" %></li> 
-          <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "logout2" %></li> 
-        <% else %> 
-          <li><%= link_to 'Log In',  new_user_session_path, class: "login2" %></li>
-          <li><%= link_to 'Sign Up', new_user_registration_path, class: "sign-up2" %></li>
-        <% end %> 
-     </ul>     
+    <div class="a-nav">
+      <ul class="a-parent">
+        <li class="has-child"><a href="#">ライブハウス関係者の方</a>
+          <ul class="a-list">
+            <% if admin_user_signed_in? %>
+              <li><%= link_to current_admin_user.store_name, admin_user_path(current_admin_user.id), class: "a-name-btn" %></li> 
+              <li><%= link_to 'Log Out', destroy_admin_user_session_path, method: :delete, class: "a-logout" %></li> 
+            <% else %> 
+              <li><%= link_to 'Log In',  new_admin_user_session_path, class: "a-login" %></li>
+              <li><%= link_to 'Sign Up', new_admin_user_registration_path, class: "a-sign-up" %></li>
+            <% end %>
+          </ul>     
+        <li>
+      </ul>
     </div>
     <div class='nav'>
       <ul class='lists-right'>
-        <% if admin_user_signed_in? %>
-          <li><%= link_to current_admin_user.store_name, admin_user_path(current_admin_user.id), class: "name-btn" %></li> 
-          <li><%= link_to 'Log Out', destroy_admin_user_session_path, method: :delete, class: "logout" %></li> 
+        <% if user_signed_in? %>
+          <li><%= link_to current_user.nickname, user_path(current_user.id), class: "name-btn" %></li> 
+          <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "logout" %></li> 
         <% else %> 
-          <li><%= link_to 'Log In',  new_admin_user_session_path, class: "login" %></li>
-          <li><%= link_to 'Sign Up', new_admin_user_registration_path, class: "sign-up" %></li>
+          <li><%= link_to 'Log In',  new_user_session_path, class: "login" %></li>
+          <li><%= link_to 'Sign Up', new_user_registration_path, class: "sign-up" %></li>
         <% end %> 
-     </ul>
-    </div>
+     </ul>     
+    </div>    
   </div>
 </header>
+
+
 
 
 
