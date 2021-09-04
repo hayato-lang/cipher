@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :authenticate_admin_user!, except: %i[index show]
+  before_action :authenticate_admin_user!, except: %i[index show search]
   before_action :set_event, only: %i[show destroy edit update]
   before_action :admin_user_authentication, only: %i[destroy edit update]
   def index
@@ -38,6 +38,10 @@ class EventsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def search
+    @events = Event.search(params[:keyword])
   end
 
   private
