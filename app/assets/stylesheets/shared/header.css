@@ -54,7 +54,6 @@
   background: #BCB912;
   opacity: 0.8;
   line-height: 43px;
-  margin-top: 5px;
   width: 105px;
   border-radius: 8px;
 }
@@ -90,7 +89,7 @@
   display: block;
   color: #BCB912;
   opacity: 0.8;
-  padding: 20px 35px;
+  padding: 20px 3px;
   transition: all .3s;
 }
 
@@ -98,7 +97,7 @@
   color: #BCB912;
 }
 
-.has-child::before {
+/* .has-child::before {
   content: '';
   position: absolute;
   right: 405px;
@@ -108,7 +107,7 @@
   border-top: 2px solid #999;
   border-right: 2px solid #999;
   transform: rotate(135deg);
-}
+} */
 
 .a-list {
   opacity: 0.8;

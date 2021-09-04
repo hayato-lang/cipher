@@ -10,11 +10,6 @@
         <%= form.submit "検索", class: "search-btn" %>
       </div>
     <% end %>
-    <% if admin_user_signed_in? %>
-      <%= link_to(new_event_path, class: 'post-btn') do %>
-        <p class="purchase-btn-text">投稿する</p>
-      <% end %>
-    <% end %>
     <div class="a-nav">
       <ul class="a-parent">
         <li class="has-child"><a href="#">ライブハウス関係者の方</a>
@@ -30,17 +25,23 @@
         <li>
       </ul>
     </div>
+    <% unless admin_user_signed_in? %>
     <div class='nav'>
       <ul class='lists-right'>
         <% if user_signed_in? %>
           <li><%= link_to current_user.nickname, user_path(current_user.id), class: "name-btn" %></li> 
           <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "logout" %></li> 
         <% else %> 
-          <li><%= link_to 'Log In',  new_user_session_path, class: "login" %></li>
-          <li><%= link_to 'Sign Up', new_user_registration_path, class: "sign-up" %></li>
+          <li><%= link_to 'Log In',  new_admin_user_session_path, class: "login" %></li>
+          <li><%= link_to 'Sign Up', new_admin_user_registration_path, class: "sign-up" %></li>
         <% end %> 
      </ul>     
-    </div>    
+    </div> 
+    <% else %>
+      <%= link_to(new_event_path, class: 'post-btn') do %>
+        <p class="purchase-btn-text">投稿する</p>
+      <% end %>      
+    <% end %>   
   </div>
 </header>
 
