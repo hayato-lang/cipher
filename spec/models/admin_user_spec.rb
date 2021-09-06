@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe AdminUser, type: :model do
-  describe 'ユーザー新規登録' do
+  describe 'ライブハウス管理者の新規登録' do
     before do
       @admin_user = FactoryBot.build(:admin_user)
     end
