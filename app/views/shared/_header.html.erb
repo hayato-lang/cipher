@@ -29,7 +29,7 @@
     <div class='nav'>
       <ul class='lists-right'>
         <% if user_signed_in? %>
-          <li><%= link_to current_user.nickname, user_path(current_user.id), class: "name-btn" %></li> 
+          <li><%= link_to current_user.nickname, class: "name-btn" %></li> 
           <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "logout" %></li> 
         <% else %> 
           <li><%= link_to 'Log In',  new_user_session_path, class: "login" %></li>
