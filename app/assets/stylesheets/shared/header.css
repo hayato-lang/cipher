@@ -1,20 +1,15 @@
-* {
-  box-sizing: border-box;
-}
 
 .top-page-header {
   position: fixed;
   background-color: rgba(242,242,242,0.9);
   width: 100%;
-  height: 55px;
+  height: 60px;
   z-index: 100;
 }
 
 .top-page-wrapper {
-  margin: 0 auto;
   display: flex;
   justify-content: space-around;
-  align-items: center;
 }
 
 .cipher-icon {
@@ -23,10 +18,13 @@
   color: #0178cb;
   letter-spacing: 0.15em;
   font-size: 26px;
-  text-decoration: none;
   opacity: 0.8;
+  padding-top: 10px;
 }
 
+.form-container {
+  padding-top: 8px;
+}
 
 .search-input  {
   width: 270px;
@@ -34,10 +32,6 @@
   line-height: 43px;
   border: 1px solid #d8d8d8;
   border-radius: 5px;
-}
-
-.search-btn {
-  width: 10%;
 }
 
 .search-btn {
@@ -51,11 +45,13 @@
 }
 
 .post-btn {
-  background: #BCB912;
+  margin-top: 4px;
+  background-color: #BCB912;
   opacity: 0.8;
-  line-height: 43px;
   width: 105px;
+  height: 50px;
   border-radius: 8px;
+  padding-top: 10px;
 }
 
 .purchase-btn-text {
@@ -76,14 +72,24 @@
   justify-content: center;
 }
 
-.a-list {
-  display: block;
+.a-login, .a-sign-up {
+  position: relative;
+  font-family: 'Kaushan Script', cursive;
+  font-size: 22px;
 }
 
-.a-name-btn, .a-logout, .a-login, .a-sign-up {
-  position: relative;
-  font-family: 'Kaushan Script', cursive ;
+.has-child::before {
+  content: '';
+  position: absolute;
+  right: 495px;
+  top: 28px;
+  width: 6px;
+  height: 6px;
+  border-top: 2px solid #999;
+  border-right: 2px solid #999;
+  transform: rotate(135deg);
 }
+
 
 .has-child a{
   display: block;
@@ -97,28 +103,18 @@
   color: #BCB912;
 }
 
-/* .has-child::before {
-  content: '';
-  position: absolute;
-  right: 405px;
-  top: 28px;
-  width: 6px;
-  height: 6px;
-  border-top: 2px solid #999;
-  border-right: 2px solid #999;
-  transform: rotate(135deg);
-} */
 
 .a-list {
   opacity: 0.8;
   position: absolute;
-  right: 250px;
-  top: 62px;
+  right: 350px;
+  top: 43px;
   z-index: 3;
   visibility: hidden;
   opacity: 0;
   transition: all .3s;
   border-radius: 4px;
+  display: block;
 }
 
 .has-child:hover > .a-list, 
@@ -154,6 +150,10 @@
 
 /* ユーザー登録 */
 
+.nav {
+  padding-top: 10px;
+}
+
 .lists-right {
   float: right;
   display: flex;
@@ -161,25 +161,31 @@
   width: 100%;
   padding: 1vh 0;
   list-style: none;
+  vertical-align: middle;
 }
 
-.name-btn {
+.name-btn, .logout {
   text-decoration: none;
   margin-right: 3vw;
-  font-family: 'Kaushan Script', cursive ;
   color: #0178cb;
   opacity: 1;
   font-size: 20px;
+}
+
+.name-btn {
   font-weight: bold;
 }
 
-
-.logout, .login, .sign-up {
+.login, .sign-up, .a-logout, .a-name-btn {
   font-size: 20px;
   text-decoration: none;
   font-family: 'Kaushan Script', cursive ;
   color: #0178cb;
   opacity: 0.8;
+}
+
+.a-name-btn {
+  padding-right: 25px;
 }
 
 .login {
