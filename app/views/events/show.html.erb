@@ -39,7 +39,7 @@
   </div>
 
   <div class="comments-container">
-    <%= form_with(model: [@event, @comment], local: true) do |f| %>
+    <%= form_with model: [@event, @comment], local: true do |f| %>
       <%= f.text_field :text, placeholder: "コメントする", rows:"2", id:"comment_text" %>
       <%= f.submit 'SEND' %>
     <% end %>
