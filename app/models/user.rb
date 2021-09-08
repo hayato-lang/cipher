@@ -10,7 +10,4 @@ class User < ApplicationRecord
   has_many :events
   has_many :likes, dependent: :destroy
   has_many :liked_events, through: :likes, source: :event
-  def already_liked?(event)
-    self.likes.find_or_create_by(event_id: event.id)
-  end
 end

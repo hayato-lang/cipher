@@ -10,18 +10,24 @@
       <div class="event-name">
         <%= @event.name %>
       </div>
-      <% unless Like.find_by(user_id: current_user.id, event_id: @event.id)  %>
-        <%= link_to event_likes_path(@event), class:"like-create" do %>
-          <div class="like-count">
-            <span class="fa fa-heart-o like-btn"></span><%= @event.likes.count %>
-          </div>
+      <% if user_signed_in? %>
+        <% if Like.find_by(user_id: current_user.id, event_id: @event.id)  %>
+          <%= link_to event_like_path(@event.id), method: :delete do %>
+            <div class="like-count">
+              <span class="fa fa-heart unlike-btn"></span><%= @event.likes.count %>
+            </div>
+          <%end %>
+        <% else %>
+          <%= link_to event_likes_path(@event.id), method: :post do %>
+            <div class="like-count">
+              <span class="fa fa-heart-o like-btn"></span><%= @event.likes.count %>
+            </div>
+          <% end %>
         <% end %>
       <% else %>
-        <%= link_to event_like_path(@event), method: :delete, class: "like-destroy" do %>
-          <div class="like-count">
-            <span class="fa fa-heart unlike-btn"></span><%= @event.likes.count %>
-          </div>
-        <%end %>
+            <div class="like-count">
+              <span class="fa fa-heart-o like-btn"></span><%= @event.likes.count %>
+            </div>
       <% end %>
     </div>
 

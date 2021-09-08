@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
   has_many :comments
   belongs_to :admin_user
-  belongs_to :user
+  belongs_to :user, optional: true
   has_one_attached :event_image
   with_options presence: true do
     validates :name
