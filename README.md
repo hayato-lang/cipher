@@ -74,6 +74,20 @@
 ### Association
 
 - has_many :comments
+- has_many :likes
+- has_many :liked_posts, through: :likes, source: :event
+
+## likesテーブル
+
+| Column | Types      | Options                      | 
+| ------ | ---------- | ---------------------------- | 
+| event  | references | null:false, foreign_key:true | 
+| user   | references | null:false, foreign_key:true | 
+
+### Association
+
+- belongs_to :user
+- belongs_to :post
 
 
 ## eventsテーブル
@@ -90,6 +104,9 @@
 ### Association
 - belongs_to :admin_user
 - has_many :comments
+- has_many :likes
+- has_many :liked_users, through: :likes, source: :user
+
 
 ## commentsテーブル
 | Column          | Types      | Options                        | 
