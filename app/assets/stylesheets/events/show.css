@@ -8,23 +8,24 @@
   height: 14.5px;
 }
 
-
-
 .like {
   display: flex;
-  align-items: center;
-  padding-bottom: 17px;
+  padding-left: 50px;
+  font-size: 25px;
 }
 
-.like-wrapper {
-  display: flex;
-  align-items: center;
-  margin-left: 12px;
+.like-create, .like-destroy {
+  padding: 11px 10px;
 }
 
-.like-create {
+.like-btn, .unlike-btn{
   margin-right: 5px;
 }
+
+.like-count {
+  color: #57c3e9;
+}
+
 
 .event-name {
   font-size: 18px;

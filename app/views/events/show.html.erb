@@ -4,17 +4,26 @@
   <div class="icon-box">
     <%= image_tag "icon_new.png", class: "event-icon" %>
   </div>
-  <div class="event-name">
-    <%= @event.name %>
-  </div>
+  
 
-  <div class= "like">
-    <h3>いいね件数: <%= @event.likes.count %></h3>
-    <div class="like-wrapper">
-      <%= button_to 'いいね', event_likes_path(@event), class:"like-create" %>
-      <%= button_to 'いいねを取り消す', event_like_path(@event), method: :delete, class: "like-destroy" %>
+    <div class= "like">
+      <div class="event-name">
+        <%= @event.name %>
+      </div>
+      <% unless Like.find_by(user_id: current_user.id, event_id: @event.id)  %>
+        <%= link_to event_likes_path(@event), class:"like-create" do %>
+          <div class="like-count">
+            <span class="fa fa-heart-o like-btn"></span><%= @event.likes.count %>
+          </div>
+        <% end %>
+      <% else %>
+        <%= link_to event_like_path(@event), method: :delete, class: "like-destroy" do %>
+          <div class="like-count">
+            <span class="fa fa-heart unlike-btn"></span><%= @event.likes.count %>
+          </div>
+        <%end %>
+      <% end %>
     </div>
-  </div>
 
   <div class="event-img-box">
     <%= image_tag @event.event_image, class:"event-img" %>
