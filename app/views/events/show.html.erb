@@ -7,6 +7,15 @@
   <div class="event-name">
     <%= @event.name %>
   </div>
+
+  <div class= "like">
+    <h3>いいね件数: <%= @event.likes.count %></h3>
+    <div class="like-wrapper">
+      <%= button_to 'いいね', event_likes_path(@event), class:"like-create" %>
+      <%= button_to 'いいねを取り消す', event_like_path(@event), method: :delete, class: "like-destroy" %>
+    </div>
+  </div>
+
   <div class="event-img-box">
     <%= image_tag @event.event_image, class:"event-img" %>
   </div>

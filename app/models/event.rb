@@ -1,6 +1,7 @@
 class Event < ApplicationRecord
   has_many :comments
   belongs_to :admin_user
+  belongs_to :user
   has_one_attached :event_image
   with_options presence: true do
     validates :name
@@ -9,6 +10,7 @@ class Event < ApplicationRecord
     validates :event_image
   end
   validate :day_after_today
+  has_many :likes
   has_many :liked_users, through: :likes, source: :user
 
   def self.search(search)

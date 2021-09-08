@@ -9,6 +9,23 @@
 }
 
 
+
+.like {
+  display: flex;
+  align-items: center;
+  padding-bottom: 17px;
+}
+
+.like-wrapper {
+  display: flex;
+  align-items: center;
+  margin-left: 12px;
+}
+
+.like-create {
+  margin-right: 5px;
+}
+
 .event-name {
   font-size: 18px;
   font-weight: bold;
