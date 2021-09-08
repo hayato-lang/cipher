@@ -9,6 +9,7 @@ class Event < ApplicationRecord
     validates :event_image
   end
   validate :day_after_today
+  has_many :liked_users, through: :likes, source: :user
 
   def self.search(search)
     if search != ''
