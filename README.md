@@ -18,15 +18,42 @@
 - RSpec
 
 # 機能一覧
-- ユーザー登録、ログイン機能（devise）
+- ユーザー登録機能(devise)
+  - ユーザー登録機能(管理者)
+    - ユーザー詳細登録機能(ウィザード形式を採用)
+  - ユーザー登録機能
 - 投稿機能
-  - イベント投稿(ActiveStorageを駆使し画像を含めて投稿)
-- コメント機能(Ajax)
+  - イベント投稿(ActiveStorageを利用し画像を含めて投稿)
+- いいね機能
+
 
 # テスト
 - RSpec
   - 単体テスト(model)
   - 結合テスト(model)
+
+# 実装した機能
+
+
+## ウィザード形式でユーザー登録（管理者）
+
+- トップページからユーザー登録ページ(管理者)へ遷移
+
+[![Image from Gyazo](https://i.gyazo.com/45dcfe27c2910ee58ad598f132268deb.gif)](https://gyazo.com/45dcfe27c2910ee58ad598f132268deb)
+
+- ユーザー情報を入力し「NEXT」ボタンをクリックするとユーザー詳細登録ページへ遷移
+
+[![Image from Gyazo](https://i.gyazo.com/4b2feff5b057167649aeba6daf724658.gif)](https://gyazo.com/4b2feff5b057167649aeba6daf724658)
+
+-  ユーザーの詳細な情報を入力し「新規登録」ボタンをクリック
+
+[![Image from Gyazo](https://i.gyazo.com/d0dd535617fadbcfaee660865e48c774.gif)](https://gyazo.com/d0dd535617fadbcfaee660865e48c774)
+
+- 登録完了ページからトップページへ遷移すると
+ヘッダーの画面の表示が変化し、ページ下部に登録した
+情報が表示されている。
+
+[![Image from Gyazo](https://i.gyazo.com/fe741a0d2ad308de50e0106e24476935.gif)](https://gyazo.com/fe741a0d2ad308de50e0106e24476935)
 
 
 
