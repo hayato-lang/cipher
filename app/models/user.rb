@@ -6,6 +6,8 @@ class User < ApplicationRecord
   PASSWORD_REGGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
   validates_format_of :password, with: PASSWORD_REGGEX
   validates :nickname, presence: true
-
   has_many :comments
+  has_many :events
+  has_many :likes, dependent: :destroy
+  has_many :liked_events, through: :likes, source: :event
 end
