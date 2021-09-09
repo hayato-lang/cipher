@@ -1,5 +1,5 @@
 class LikesController < ApplicationController
-  before_action :authenticate_user!, only: [:destroy, :create]
+  before_action :authenticate_user!, only: %i[destroy create]
 
   def create
     @like = current_user.likes.create(event_id: params[:event_id])
