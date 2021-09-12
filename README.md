@@ -3,8 +3,7 @@
 <br>
 ユーザー（ライブハウス管理者）は登録すると、イベント情報を投稿することができます。
 
-<!-- ここにサイトの画像を載せる -->
-
+[![Image from Gyazo](https://i.gyazo.com/9e3f0ac583032f29b2133627991c555a.gif)](https://gyazo.com/9e3f0ac583032f29b2133627991c555a)
 
 # 使用技術
 - Ruby 2.6.5
@@ -34,26 +33,6 @@
 
 # 実装した機能
 
-
-## ウィザード形式でユーザー登録（管理者）
-
-- トップページからユーザー登録ページ(管理者)へ遷移
-
-[![Image from Gyazo](https://i.gyazo.com/45dcfe27c2910ee58ad598f132268deb.gif)](https://gyazo.com/45dcfe27c2910ee58ad598f132268deb)
-
-- ユーザー情報を入力し「NEXT」ボタンをクリックするとユーザー詳細登録ページへ遷移
-
-[![Image from Gyazo](https://i.gyazo.com/4b2feff5b057167649aeba6daf724658.gif)](https://gyazo.com/4b2feff5b057167649aeba6daf724658)
-
--  ユーザーの詳細な情報を入力し「新規登録」ボタンをクリック
-
-[![Image from Gyazo](https://i.gyazo.com/d0dd535617fadbcfaee660865e48c774.gif)](https://gyazo.com/d0dd535617fadbcfaee660865e48c774)
-
-- 登録完了ページからトップページへ遷移すると
-ヘッダーの画面の表示が変化し、ページ下部に登録した
-情報が表示されている。
-
-[![Image from Gyazo](https://i.gyazo.com/fe741a0d2ad308de50e0106e24476935.gif)](https://gyazo.com/fe741a0d2ad308de50e0106e24476935)
 
 
 
