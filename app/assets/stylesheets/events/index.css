@@ -1,6 +1,3 @@
-a {
-  text-decoration:none; 
-}
 
 /* イベント一覧 */
 
@@ -133,7 +130,7 @@ a {
 /* イベント一覧 */
 
 #japan-map {
-  padding-top: 280px;
+  padding-top: 380px;
 }
 
 /* 店舗一覧 */
