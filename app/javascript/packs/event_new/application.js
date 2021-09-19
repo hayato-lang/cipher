@@ -1,0 +1,1 @@
+require('event_new/preview_event')
