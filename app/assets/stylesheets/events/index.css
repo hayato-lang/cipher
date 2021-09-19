@@ -1,6 +1,3 @@
-a {
-  text-decoration:none; 
-}
 
 /* イベント一覧 */
 
@@ -17,7 +14,6 @@ a {
   font-size: 45px;
   letter-spacing: 5px;
   font-weight: 600;
-  color: #1e2022;
   text-align: center;
   font-family: 'arial black';
 }
@@ -28,7 +24,6 @@ a {
 
 .store-title {
   padding: 53px 0 40px 0;
-
 }
 
 .event-contents {
@@ -66,10 +61,6 @@ a {
   font-weight: 700;
   line-height: 1.7;
   color: #1e2022;
-}
-
-.event-list>p {
-  text-decoration: none;
 }
 
 .prefecture {
@@ -139,7 +130,7 @@ a {
 /* イベント一覧 */
 
 #japan-map {
-  padding-top: 280px;
+  padding-top: 380px;
 }
 
 /* 店舗一覧 */
@@ -166,8 +157,6 @@ a {
 .store-lists .slick-slide {
   margin: 0 10px;
 }
-
-
 
 /* 店舗一覧 */
 
