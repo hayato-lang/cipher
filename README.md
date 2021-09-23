@@ -6,7 +6,7 @@
 ライブハウスや音楽アーティストが
 人々の心を揺さぶる手助けをしたいと思いこのアプリを作成しました。
 
-[![Image from Gyazo](https://i.gyazo.com/9e3f0ac583032f29b2133627991c555a.gif)](https://gyazo.com/9e3f0ac583032f29b2133627991c555a)
+[![Image from Gyazo](https://i.gyazo.com/6afb370b1d8676890119248881eb7aba.gif)](https://gyazo.com/6afb370b1d8676890119248881eb7aba)
 
 # 使用技術
 - Ruby 2.6.5
@@ -34,7 +34,7 @@
   - 単体テスト(model)
   - 結合テスト(model)
 
-# 実装した機能
+# 実装した主な機能
 
 ## ユーザー新規登録(管理者)
 
@@ -47,12 +47,6 @@
 ## ユーザー新規登録（管理者）が完了するとトップページの下部のライブハウス一覧表示のスライドショーに表示される
 
 [![Image from Gyazo](https://i.gyazo.com/85b768a97a147453b4f63570e6daf7f8.gif)](https://gyazo.com/85b768a97a147453b4f63570e6daf7f8)
-
-
-## ユーザー新規登録
-
-[![Image from Gyazo](https://i.gyazo.com/3e1e0bd7dfb2e76ef5da27bb74f3184c.png)](https://gyazo.com/3e1e0bd7dfb2e76ef5da27bb74f3184c)
-
 
 ## ユーザー新規登録（管理者）が完了したユーザーはイベントを投稿することができる
 
