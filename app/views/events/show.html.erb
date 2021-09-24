@@ -1,35 +1,21 @@
 <%= render 'shared/second_header' %>
-<%# 商品の概要 %>
+<%# イベントの概要 %>
 <div class="event-show">
   <div class="icon-box">
     <%= image_tag "icon_new.png", class: "event-icon" %>
   </div>
   
 
-    <div class= "like">
-      <div class="event-name">
-        <%= @event.name %>
-      </div>
-      <% if user_signed_in? %>
-        <% if Like.find_by(user_id: current_user.id, event_id: @event.id)  %>
-          <%= link_to event_like_path(@event.id), method: :delete do %>
-            <div class="like-count">
-              <span class="fa fa-heart unlike-btn"></span><%= @event.likes.count %>
-            </div>
-          <%end %>
-        <% else %>
-          <%= link_to event_likes_path(@event.id), method: :post do %>
-            <div class="like-count">
-              <span class="fa fa-heart-o like-btn"></span><%= @event.likes.count %>
-            </div>
-          <% end %>
-        <% end %>
-      <% else %>
-            <div class="like-count">
-              <span class="fa fa-heart-o like-btn"></span><%= @event.likes.count %>
-            </div>
-      <% end %>
+  <div class= "like">
+    <div class="event-name">
+      <%= @event.name %>
     </div>
+    <%# いいねボタン %>
+    <div id="likes_buttons_<%= @event.id %>">
+      <%= render partial: 'likes/like', locals: {post: @event} %>
+    </div>
+    <%# いいねボタン %>
+  </div>
 
   <div class="event-img-box">
     <%= image_tag @event.event_image, class:"event-img" %>
@@ -61,12 +47,17 @@
       </tbody>
     </table>
   </div>
+<%# イベント概要 %>
 
+<%# コメントフォーム %>
   <div class="comments-container">
     <%= form_with model: [@event, @comment], local: true do |f| %>
       <%= f.text_field :text, placeholder: "コメントする", rows:"2", id:"comment_text" %>
       <%= f.submit 'SEND' %>
     <% end %>
+<%# コメントフォーム %>
+
+<%# コメント一覧 %>
     <h4>＜コメント一覧＞</h4>
     <div id ='comments'>
       <% @comments.each do |comment| %>
@@ -76,6 +67,7 @@
     </div>
   </div>
 </div>
+<%# コメント一覧 %>
 
   <%= link_to '一覧へ戻る', root_path, class: 'list-back-link' %>
 

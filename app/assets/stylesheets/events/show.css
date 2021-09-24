@@ -15,15 +15,14 @@
 }
 
 .like-count {
+  color: #57c3e9;
+  /* text-align: right; */
+  font-size: 28px;
   padding: 11px 10px;
 }
 
-.like-btn, .unlike-btn{
+.like-btn{
   margin-right: 5px;
-}
-
-.like-count {
-  color: #57c3e9;
 }
 
 

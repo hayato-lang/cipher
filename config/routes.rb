@@ -15,11 +15,14 @@ Rails.application.routes.draw do
   end
   root to: 'events#index'
   resources :events do
-    resources :likes, only: %i[create destroy]
     resources :comments, only: :create
     collection do
       get 'search'
     end
   end
+
+  post 'like/:id' => 'likes#create', as: 'create_like'
+  delete 'like/:id' => 'likes#destroy', as: 'destroy_like'
+
   resources :admin_users, only: :show
 end

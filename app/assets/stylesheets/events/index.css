@@ -56,6 +56,11 @@
   text-decoration: none;
 }
 
+.event-info {
+  display: flex;
+  justify-content:space-between;
+}
+
 .event-name {
   font-size: 15px;
   font-weight: 700;
@@ -66,6 +71,13 @@
 .prefecture {
   color: #BCB912;
   font-size: 20px;
+}
+
+.event-like {
+  color: #0178cb;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
 }
 
 

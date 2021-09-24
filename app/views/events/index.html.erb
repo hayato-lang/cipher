@@ -24,7 +24,13 @@
         <% end %>
         <div class='event-info'>
           <div class='event-details'>
-            <span class="prefecture"><%= event.admin_user&.admin_profile&.prefecture&.name %><br><%= link_to event.admin_user.store_name , admin_user_path(event.admin_user_id) , class: "admin-show-btn"%></span>
+            <div class="prefecture">
+              <%= event.admin_user&.admin_profile&.prefecture&.name %>
+            </div>
+            <%= link_to event.admin_user.store_name , admin_user_path(event.admin_user_id) , class: "admin-show-btn"%>
+          </div>
+          <div class="event-like">
+              <span class="fa fa-heart"><%= event.likes.count %>
           </div>
         </div>
       </li>
