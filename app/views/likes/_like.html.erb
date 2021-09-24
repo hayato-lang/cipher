@@ -1,0 +1,19 @@
+<% if user_signed_in? %>
+ <% if current_user.liked_by?(@event.id) %>
+   <td>
+    <%= link_to destroy_like_path(@event), method: :DELETE, remote: true do %>
+    <div class="like-count">
+      <span class="fa fa-heart like-btn"><%= @event.likes.count %>
+    </div>
+    <% end %>
+  </td>
+ <% else %>
+   <td>
+    <%= link_to create_like_path(@event), method: :POST, remote: true do %>
+    <div class="like-count">
+      <span class="fa fa-heart-o like-btn"><%= @event.likes.count %>
+    </div>
+    <% end %>
+   </td>
+ <% end %>
+<% end %>

@@ -1,14 +1,18 @@
 class LikesController < ApplicationController
   before_action :authenticate_user!, only: %i[destroy create]
-
+  before_action :post_params
+  
   def create
-    @like = current_user.likes.create(event_id: params[:event_id])
-    redirect_back(fallback_location: root_path)
+    Like.create(user_id: current_user.id, event_id: params[:id])
   end
-
+  
   def destroy
-    @like = Like.find_by(event_id: params[:event_id], user_id: current_user.id)
-    @like.destroy
-    redirect_back(fallback_location: root_path)
+    Like.find_by(user_id: current_user.id, event_id: params[:id]).destroy
+  end
+  
+  private
+  
+  def post_params
+    @event = Event.find(params[:id])
   end
 end
