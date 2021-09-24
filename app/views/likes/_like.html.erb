@@ -1,5 +1,5 @@
-<% if user_signed_in? %>
- <% if current_user.liked_by?(@event.id) %>
+
+ <% if user_signed_in? && current_user.liked_by?(@event.id) %>
    <td>
     <%= link_to destroy_like_path(@event), method: :DELETE, remote: true do %>
     <div class="like-count">
@@ -16,4 +16,3 @@
     <% end %>
    </td>
  <% end %>
-<% end %>
