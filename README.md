@@ -97,7 +97,7 @@
 | phone_number       | string     | null: false                    | 
 | profile            | text       | null: false                    | 
 | store_image        |            | Active Storageで実装            |
-| admin_user         | references | null: false, foreign_key: true |
+| admin_user         | references | null: false, optional: true    |
 
 ### Association
 - belongs_to :admin_user
@@ -117,10 +117,11 @@
 
 ## likesテーブル
 
-| Column | Types      | Options                      | 
-| ------ | ---------- | ---------------------------- | 
-| event  | references | null:false, foreign_key:true | 
-| user   | references | null:false, foreign_key:true | 
+| Column     | Types      | Options                      | 
+| ---------- | ---------- | ---------------------------- | 
+| event      | references | null:false, foreign_key:true | 
+| user       | references | null:false, optional: true   | 
+| admin_user | references | null: false, optional: true  |
 
 ### Association
 
