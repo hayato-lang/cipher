@@ -12,7 +12,7 @@
     </div>
     <%# いいねボタン %>
     <div id="likes_buttons_<%= @event.id %>">
-      <%= render partial: 'likes/like', locals: {post: @event} %>
+      <%= render partial: 'likes/like', locals: {event: @event} %>
     </div>
     <%# いいねボタン %>
   </div>

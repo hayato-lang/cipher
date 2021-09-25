@@ -11,7 +11,7 @@ class Event < ApplicationRecord
   end
   validate :day_after_today
   has_many :likes
-  has_many :liked_users, through: :likes, source: :user
+  
 
   def self.search(search)
     if search != ''

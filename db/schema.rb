@@ -80,8 +80,8 @@ ActiveRecord::Schema.define(version: 2021_09_08_002748) do
 
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "event_id", null: false
-    t.bigint "user_id", null: false
-    t.bigint "admin_user_id", null: false
+    t.bigint "user_id"
+    t.bigint "admin_user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["admin_user_id"], name: "index_likes_on_admin_user_id"
