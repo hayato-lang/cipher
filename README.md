@@ -114,7 +114,6 @@
 
 - has_many :comments
 - has_many :likes
-- has_many :liked_posts, through: :likes, source: :event
 
 ## likesテーブル
 
@@ -126,7 +125,7 @@
 ### Association
 
 - belongs_to :user
-- belongs_to :post
+- belongs_to :event
 
 
 ## eventsテーブル
@@ -144,7 +143,6 @@
 - belongs_to :admin_user
 - has_many :comments
 - has_many :likes
-- has_many :liked_users, through: :likes, source: :user
 
 
 ## commentsテーブル
