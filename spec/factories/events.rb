@@ -5,7 +5,7 @@ FactoryBot.define do
     content { Faker::Lorem.sentence }
     association :admin_user
     after(:build) do |event|
-      event.event_image.attach(io: File.open('public/images/test_event_image.jpg'), filename: 'test_event_image.jpg')
+      event.event_image.attach(io: File.open('public/images/test_event_image.jpeg'), filename: 'test_event_image.jpeg')
     end
   end
 end
