@@ -82,6 +82,7 @@
 ### Association
 - has_many :events
 - has_many :comments
+- has_many :likes
 - has_one :admin_profile
 
 
@@ -120,12 +121,13 @@
 | Column     | Types      | Options                      | 
 | ---------- | ---------- | ---------------------------- | 
 | event      | references | null:false, foreign_key:true | 
-| user       | references | null:false, optional: true   | 
-| admin_user | references | null: false, optional: true  |
+| user       | references | optional: true               | 
+| admin_user | references | optional: true               |
 
 ### Association
 
 - belongs_to :user
+- belongs_to :admin_user
 - belongs_to :event
 
 
