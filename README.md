@@ -136,7 +136,7 @@
 | Column          | Types      | Options                        | 
 | --------------- | ---------- | ------------------------------ | 
 | admin_user      | references | null: false, foreign_key: true | 
-| name            | string     | null: false,                   |
+| name            | string     | null: false,                   | 
 | content         | text       | null: false,                   | 
 | event_date      | date       | null: false,                   | 
 | event_image     |            | Active Storageで実装            | 
@@ -151,8 +151,8 @@
 ## commentsテーブル
 | Column          | Types      | Options                        | 
 | --------------- | ---------- | ------------------------------ | 
-| event           | references | null: false, foreign_key: true |
-| user            | references | null: false, foreign_key: true |
+| event           | references | null: false, foreign_key: true | 
+| user            | references | null: false, foreign_key: true | 
 | text            | text       | null: false                    | 
 
 
