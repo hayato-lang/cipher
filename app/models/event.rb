@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-  has_many :comments
+  has_many :comments, dependent: :destroy
   belongs_to :admin_user
   belongs_to :user, optional: true
   has_one_attached :event_image
