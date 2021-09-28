@@ -1,12 +1,15 @@
 class CommentsController < ApplicationController
   def create
-    comment = Comment.new(comment_params)
-    ActionCable.server.broadcast 'comment_channel', content: comment if comment.save
+    @event = Event.find(params[:event_id])
+    @comment = @event.comment.build(comment_params)
+    @comment.user_id = current_user.id
+    @comment.save
+    render :index
   end
 
-  private
-
-  def comment_params
-    params.require(:comment).permit(:text).merge(event_id: params[:event_id])
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    render :index
   end
 end

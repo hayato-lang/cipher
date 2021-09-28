@@ -51,19 +51,12 @@
 
 <%# コメントフォーム %>
   <div class="comments-container">
-    <%= form_with model: [@event, @comment], local: true do |f| %>
-      <%= f.text_field :text, placeholder: "コメントする", rows:"2", id:"comment_text" %>
-      <%= f.submit 'SEND' %>
-    <% end %>
 <%# コメントフォーム %>
-
+      <%= render partial: 'comments/form', locals: { comment: @comment, event: @event } %>
 <%# コメント一覧 %>
     <h4>＜コメント一覧＞</h4>
     <div id ='comments'>
-      <% @comments.each do |comment| %>
-        <p class = "latest_comment"><%= comment.created_at %></p>
-        <p class="comment"><%= comment.text %></p>
-      <% end %>
+      <%= render partial: 'comments/index', locals: { comments: @comments } %>
     </div>
   </div>
 </div>
