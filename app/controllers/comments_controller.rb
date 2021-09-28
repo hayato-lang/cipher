@@ -12,4 +12,10 @@ class CommentsController < ApplicationController
     @comment.destroy
     render :index
   end
+
+  private
+
+  def comment_params
+    params.require(:comment).permit(:text, :event_id, :user_id)
+  end
 end
