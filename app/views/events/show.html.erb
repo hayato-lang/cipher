@@ -52,7 +52,9 @@
 <%# コメントフォーム %>
   <div class="comments-container">
 <%# コメントフォーム %>
+  <% if user_signed_in? %>
       <%= render partial: 'comments/form', locals: { comment: @comment, event: @event } %>
+  <% end %>
 <%# コメント一覧 %>
     <h4>＜コメント一覧＞</h4>
     <div id ='comments'>

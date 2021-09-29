@@ -22,7 +22,7 @@ class EventsController < ApplicationController
 
   def show
     @comment = Comment.new
-    @comments = @event.comments.order('created_at DESC')
+    @comments = @event.comments.includes(:user).order('created_at DESC')
     @like = Like.new
   end
 
