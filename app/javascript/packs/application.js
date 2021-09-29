@@ -11,7 +11,6 @@ require('../slick_show')
 require('../event_list')
 require('../store_list')
 require('bootstrap')
-require('@fortawesome/fontawesome-free/js/all')
 require('../src/application.scss')
 
 
