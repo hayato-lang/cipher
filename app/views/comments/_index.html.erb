@@ -1,12 +1,12 @@
 <%# コメント内容(2件目まで) %>
 <%= comments.count %>件コメント
-<h6 class="more" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">もっと見る....</h6>
+<a class="more" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">もっと見る....</a>
 <% comments.first(2).each do |comment| %>
   <% unless comment.id.nil? %>
     <li class="comment-container">
         <div class="comment-box">
             <div class="comment-text">
-                <p><%= link_to "@#{comment.user.nickname}", users_user_path(comment.user.id) %></p>
+                <p class="comment-user"><%= "@#{comment.user.nickname}" %></p>
                 <div class="comment-entry">
                     <%= comment.text %>
                     <% if comment.user == current_user %>
@@ -30,11 +30,11 @@
                 <li class="comment-container">
                     <div class="comment-box">
                         <div class="comment-text">
-                            <p><%= link_to "@#{comment.user.nickname}", users_user_path(comment.user.id) %></p>
+                          <p class="comment-user"><%= "@#{comment.user.nickname}" %></p>
                             <div class="comment-entry">
                                 <%= comment.text %>
                                 <% if comment.user == current_user %>
-                                    <%= link_to event_comment_path(comment.item_id, comment.id), method: :delete, remote: true, class: "comment_destroy" do %>
+                                    <%= link_to event_comment_path(comment.event_id, comment.id), method: :delete, remote: true, class: "comment_destroy" do %>
                                         <i class="fas fa-trash" style="color: black;"></i>
                                     <% end %>
                                 <% end %>

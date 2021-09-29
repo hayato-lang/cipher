@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   def create
     @event = Event.find(params[:event_id])
-    @comment = @event.comment.build(comment_params)
+    @comment = @event.comments.build(comment_params)
     @comment.user_id = current_user.id
     @comment.save
     render :index
