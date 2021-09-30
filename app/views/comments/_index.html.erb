@@ -1,6 +1,6 @@
 <%# コメント内容(2件目まで) %>
 <%= comments.count %>件コメント
-<a class="more" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">もっと見る....</a>
+<h6 class="more" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">もっと見る....</h6>
 <% comments.first(2).each do |comment| %>
   <% unless comment.id.nil? %>
     <li class="comment-container">
@@ -14,10 +14,10 @@
                             <i class="fa fa-trash" style="color: black;"></i>
                         <% end %>
                     <% end %>
-                </div>
                 <span class="comment-date pull-right">
                       <%= comment.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
                 </span>
+                </div>
             </div>
         </div>
     </li>

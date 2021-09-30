@@ -56,7 +56,7 @@
       <%= render partial: 'comments/form', locals: { comment: @comment, event: @event } %>
   <% end %>
 <%# コメント一覧 %>
-    <h4>＜コメント一覧＞</h4>
+    <h4 class="comment-index">＜コメント一覧＞</h4>
     <div id ='comments'>
       <%= render partial: 'comments/index', locals: { comments: @comments } %>
     </div>
