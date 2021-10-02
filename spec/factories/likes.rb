@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :like do
-    event { nil }
-    user { nil }
+    association :user
+    association :event
+    user {event.user}
   end
 end
