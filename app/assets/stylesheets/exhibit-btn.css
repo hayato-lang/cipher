@@ -6,6 +6,11 @@
   letter-spacing: 1.5em;
 }
 
+.login-btn{
+  width: 30vw;
+  margin: 20px auto;
+}
+
 
 .login-submit-btn, .register-submit-btn, .event-submit-btn {
   width: 100%;
