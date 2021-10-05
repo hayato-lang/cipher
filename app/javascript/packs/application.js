@@ -10,6 +10,8 @@ require('jquery')
 require('../slick_show')
 require('../event_list')
 require('../store_list')
+require('bootstrap')
+require('../src/application.scss')
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

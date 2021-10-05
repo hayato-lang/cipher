@@ -3,7 +3,7 @@
    <td>
     <%= link_to destroy_like_path(@event), method: :DELETE, remote: true do %>
     <div class="like-count">
-      <span class="fa fa-heart like-btn"><%= @event.likes.count %>
+      <i class="fa fa-heart like-btn"><%= @event.likes.count %></i>
     </div>
     <% end %>
   </td>
@@ -11,7 +11,7 @@
    <td>
     <%= link_to create_like_path(@event), method: :POST, remote: true do %>
     <div class="like-count">
-      <span class="fa fa-heart-o like-btn"><%= @event.likes.count %>
+      <i class="fa fa-heart-o like-btn"><%= @event.likes.count %></i>
     </div>
     <% end %>
    </td>

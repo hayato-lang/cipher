@@ -1,0 +1,4 @@
+<%= form_with(model: [event, comment], url: event_comments_path(@event), class: "comment-form" ) do |f| %>
+    <%= f.text_area :text, placeholder:"コメントする", row:"2",  class: "input-mysize"%>
+    <%= f.submit "SEND", class:"comment-send" %>
+<% end %>

@@ -39,34 +39,33 @@
 .event-text {
   font-weight: bold;
   min-width: 170px;
+  padding-top: 20px;
+  padding-bottom: 10px;
 }
 
-.form-enter {
-  margin-top: 20px;
+.event-time-text {
+  font-weight: bold;
+  min-width: 170px;
+  padding: 20px 5px 15px 0;
 }
 
 .input-box {
   width: 100%;
-    padding: 16px 16px 8px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    resize: none;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  resize: none;
 }
-
-.form-group {
-  padding-bottom: 20px;
-}
-
-.event-date-wrap {
-  padding-bottom: 20px;
-  margin-top: 10px;
-}
-
 
 .txt {
   font-weight: bold;
   min-width: 170px;
   margin: 10px 0;
+}
+
+.red-time{
+  color: red;
+  margin-left: 5px;
+  display: inline-block;
 }
 

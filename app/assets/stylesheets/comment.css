@@ -1,0 +1,88 @@
+
+.comments-container {
+  width: 60%;
+  margin: 20px auto;
+  list-style-type:none;
+}
+
+/* コメントフォーム */
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.input-mysize {
+  width: 100%;
+  margin: 5px 0 15px;
+  padding: 10px;
+  border: 1px solid #d8d8d8;
+  border-radius: 5px;
+}
+
+.comment-send {
+  font-family: "游ゴシック", "YuGothic";
+  background-color: #57c3e9;
+  border-radius: 20px;
+  color: #fff;
+  border: 0;
+  font-size: 28px;
+}
+
+/* コメントフォーム */
+
+/* コメント一覧 */
+.comment-index {
+  text-align: center;
+  padding-top: 12px;
+}
+
+.more {
+  display: inline-block;
+  color: #C0C0C0;
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.more:hover{
+  color: #C0C0C0;
+  opacity: 1;
+}
+
+.comment-container {
+  margin-top: 13px;
+}
+
+.comment-up {
+  display: flex;
+  justify-content: space-between;
+}
+
+.comment-date {
+  margin: 5px 8px 0 0 ;
+}
+
+.comment-text {
+  border: 1px solid #BCB912;
+}
+
+.comment-down {
+  display: flex;
+}
+
+.comments {
+  padding: 5px;
+  margin-top: 15px;
+}
+
+.comment {
+  padding-top: 4px;
+  padding-right: 10px;
+}
+
+.garbage {
+  color: #BCB912;
+}
+
+/* コメント一覧 */

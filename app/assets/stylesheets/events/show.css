@@ -16,7 +16,6 @@
 
 .like-count {
   color: #57c3e9;
-  /* text-align: right; */
   font-size: 28px;
   padding: 11px 10px;
 }
@@ -49,7 +48,6 @@
   margin: 20px 0px;
   padding: 2vh 10vw;
   display: block;
-  color: black;
   font-weight: bolder;
 }
 
@@ -91,45 +89,5 @@
   display: block;
   position: relative;
   padding: 20px 0 20px 17px;
-  color: black;
 }
 
-.comments-container {
-  width: 60%;
-  margin: 20px auto;
-  padding: 30px;
-  box-sizing: border-box;
-}
-
-.comments-container> form input{
-  width: 100%;
-  margin: 5px 0 15px;
-  padding: 10px;
-  border: 1px solid #d8d8d8;
-  border-radius: 5px;
-  font-family: "游ゴシック", "YuGothic";
-  height: auto;
-  min-height: 50px;
-}
-
-.comments-container> form input[type="submit"]  {
-  background-color: #57c3e9;
-  border-radius: 20px;
-  color: #fff;
-  border: 0;
-  font-size: 18px;
-}
-
-.comments {
-  padding: 5px;
-  margin-top: 15px;
-}
-
-.latest_comment {
-  padding-top: 8px;
-  color: #BCB912;
-}
-
-.comment {
-  padding-top: 4px;
-}
