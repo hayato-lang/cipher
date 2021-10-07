@@ -71,10 +71,7 @@
 
 [![Image from Gyazo](https://i.gyazo.com/52fa9f8b868091fb39ac6518d7843a2b.gif)](https://gyazo.com/52fa9f8b868091fb39ac6518d7843a2b)
 
-
-
 <!-- 実装した機能を複数掲載 -->
-
 
 # 今後実装したい機能
 
@@ -101,7 +98,6 @@
 - has_many :likes
 - has_one :admin_profile
 
-
 ## admin_profilesテーブル
 
 | Column             | Types      | Options                        | 
@@ -113,7 +109,6 @@
 | building_name      | string     | null: false                    | 
 | phone_number       | string     | null: false                    | 
 | profile            | text       | null: false                    | 
-| store_image        |            | Active Storageで実装            |
 | admin_user         | references | null: false, optional: true    |
 
 ### Association
@@ -146,7 +141,6 @@
 - belongs_to :admin_user
 - belongs_to :event
 
-
 ## eventsテーブル
 
 | Column          | Types      | Options                        | 
@@ -155,14 +149,11 @@
 | name            | string     | null: false,                   | 
 | content         | text       | null: false,                   | 
 | event_date      | date       | null: false,                   | 
-| event_image     |            | Active Storageで実装            | 
-
 
 ### Association
 - belongs_to :admin_user
 - has_many :comments
 - has_many :likes
-
 
 ## commentsテーブル
 | Column          | Types      | Options                        | 
