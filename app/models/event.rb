@@ -3,6 +3,8 @@ class Event < ApplicationRecord
   belongs_to :admin_user
   belongs_to :user, optional: true
   has_one_attached :event_image
+  has_many :likes
+
   with_options presence: true do
     validates :name
     validates :content
@@ -10,7 +12,7 @@ class Event < ApplicationRecord
     validates :event_image
   end
   validate :day_after_today
-  has_many :likes
+
 
   def self.search(search)
     if search != ''

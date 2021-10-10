@@ -1,21 +1,20 @@
 <%= render 'shared/second_header' %>
-<%# イベントの概要 %>
+
 <div class="event-show">
+  <%# イベントの概要 %>
   <div class="icon-box">
     <%= image_tag "icon_new.png", class: "event-icon" %>
   </div>
-  
-
+  <%# いいねボタン %>
   <div class= "like">
     <div class="event-name">
       <%= @event.name %>
     </div>
-    <%# いいねボタン %>
     <div id="likes_buttons_<%= @event.id %>">
       <%= render partial: 'likes/like', locals: {event: @event} %>
     </div>
-    <%# いいねボタン %>
   </div>
+  <%# いいねボタン %>
 
   <div class="event-img-box">
     <%= image_tag @event.event_image, class:"event-img" %>
@@ -47,22 +46,24 @@
       </tbody>
     </table>
   </div>
-<%# イベント概要 %>
+  <%# イベント概要 %>
 
-<%# コメントフォーム %>
+  <%# コメントフォーム %>
   <div class="comments-container">
-<%# コメントフォーム %>
   <% if user_signed_in? %>
       <%= render partial: 'comments/form', locals: { comment: @comment, event: @event } %>
   <% end %>
-<%# コメント一覧 %>
+  <%# コメントフォーム %>
+
+  <%# コメント一覧 %>
     <h4 class="comment-index">＜コメント一覧＞</h4>
     <div id ='comments'>
       <%= render partial: 'comments/index', locals: { comments: @comments } %>
     </div>
   </div>
+  <%# コメント一覧 %>
 </div>
-<%# コメント一覧 %>
+
 
   <%= link_to '一覧へ戻る', root_path, class: 'list-back-link' %>
 
